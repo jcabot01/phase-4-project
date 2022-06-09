@@ -1,7 +1,20 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+User.destroy 
+Review.destroy 
+Rv.destroy 
+
+puts "seeding database..."
+u1 = User.create(username: "trailerparkboy")
+u2 = User.create(username: "handydandy123")
+u3 = User.create(username: "hobolife2003")
+
+r1 = Review.create(review: "Absolutely loved this camper!  I didn't even mind the smell.", user_id: u1, rv_id: rv1)
+r2 = Review.create(review: "Not bad.  Might do this one again if the price is right.", user_id: u2, rv_id: rv2)
+r3 = Review.create(review: "I did not like this RV.  Too many spiders and it smells old.", user_id: u3, rv_id: rv3)
+
+rv1 = Rv.create(name: "Sprinter", image_url: "https://tinyurl.com/ynvf9d3w" , description: "A well-maintained high-performance vehicle.  Features a kitchenette, bathroom, shower, sleeps 4 adults.  Well worth the expense!", mileage: Faker::Number.within(range: 21,000..140,000))
+rv2 = Rv.create(name: "Well-Loved", image_url: "https://tinyurl.com/28kz4yu9" , description: "She's a little rusty, but don't let that deter you.  Features a kitchenette, bathroom, shower, living/dinning area, sleeps 8 adults.", mileage: Faker::Number.within(range: 21,000..140,000))
+rv3 = Rv.create(name: "Palace on Wheels", image_url: "https://tinyurl.com/2cdy5e9a", description: "Get your checkbook ready.  She's a beaut!  Features a kitchenette, bathroom, shower, dining/living area, jacuzzi, 4-wheeler, satelite tv, sleeps 10 adults.", mileage: Faker::Number.within(range: 21,000..140,000))
+
+puts "🌴 database seeded 😀"
