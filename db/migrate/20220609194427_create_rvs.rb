@@ -5,6 +5,7 @@ class CreateRvs < ActiveRecord::Migration[6.1]
       t.string :image_url
       t.text :description
       t.integer :mileage
+      t.string :region
 
       t.timestamps
     end
