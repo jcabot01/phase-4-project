@@ -34,6 +34,7 @@ function LoginForm() {
 
 const Title = styled.h4`
   font-family: "Permanent Marker", cursive;
+  text-align: "center";
   font-size: 2rem;
   color: black;
   margin: 8px 0 16px;
