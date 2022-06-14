@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authorize, only: [:create]
+  wrap_parameters format: []
 
   ###########probably need a User serializer to display non-password data to frontend
 

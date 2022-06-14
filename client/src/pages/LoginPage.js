@@ -5,13 +5,12 @@ import styled from '@emotion/styled';
 import { Button } from '@mui/material';
 
 
-
 function LoginPage({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true)
 
   return(
       <Wrapper>
-        <Logo>RV'n B</Logo>
+        
         {showLogin ? (
           <>
             <LoginForm onLogin={onLogin} />
@@ -26,7 +25,7 @@ function LoginPage({ onLogin }) {
         ) : (
           <>
             <SignupForm onLogin={onLogin}/>
-            <Divider />
+            <Divider  />
             <p>
               Don't have an account? &nbsp;
               <Button color="secondary" onClick={() => setShowLogin(true)}>
@@ -44,13 +43,6 @@ const Wrapper = styled.section`
   display: "flex";
   flexDirection: "column";
   margin: auto;
-`;
-
-const Logo = styled.h1`
-  font-family: "Permanent Marker", cursive;
-  font-size: 3rem;
-  color: deeppink;
-  margin: 8px 0 16px;
 `;
 
 const Divider = styled.hr`

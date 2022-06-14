@@ -2,6 +2,7 @@ import { React, useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import Demo from "./Demo";
+import RvListPage from "./pages/RvListPage";
 
 
 function App() {
@@ -17,12 +18,14 @@ function App() {
 
   if (!user) return <LoginPage onLogin={setUser} />
 
+  // <Route path ="*" element="404 Page Not Found"/>
   return (
     <div>
         
     <Router>
       <Routes>
-        <Route path ="*" element="404 Page Not Found"/>
+        <Route exact path ="/rvlist" element={<RvListPage />}/>
+        
         <Route path ="/demo" element={<Demo />}/>
       </Routes>
     </Router>
