@@ -1,16 +1,19 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
-import { Button } from "@mui/material";
+import Demo from "./Demo";
+
 
 function App() {
   return (
     <div>
-    <Button> Hello </Button>
+        
     <Router>
       <Routes>
         <Route path ='/login' element={<LoginPage />}/>
+        <Route path ='/' element="App path" />
         <Route path ="*" element="404 Page Not Found"/>
+        <Route path ="/demo" element={<Demo />}/>
       </Routes>
     </Router>
     </div>
