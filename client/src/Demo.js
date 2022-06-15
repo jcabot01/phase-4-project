@@ -8,6 +8,7 @@ function Demo() {
   return (
   <div>
     <Wrapper>
+      <Typography variant='h2' fontFamily={'cursive'} align='center' sx={{ color: "purple", }}>Hi World</Typography>
       <Box textAlign={'center'}>
         <Button 
           onClick={() => alert("clicked")}
@@ -26,7 +27,6 @@ function Demo() {
         <form>
           <TextField 
             value={name} onChange={(e) => setName(e.target.value)}
-            required='true'
             type={'text'}
             sx={{ margin: 2 }} 
             placeholder='Name' 

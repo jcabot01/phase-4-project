@@ -66,7 +66,7 @@ function SignupForm({ onLogin }) {
         </form>
           <Wrapper>
             {errors.map((err) => (
-              <Typography key={err} >{err}</Typography>
+              <Typography key={err} align='center'>{err}</Typography>
             ))}
           </Wrapper>     
       </Box>

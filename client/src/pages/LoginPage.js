@@ -2,7 +2,7 @@ import { React, useState } from 'react';
 import LoginForm from '../components/LoginForm';
 import SignupForm from '../components/SignupForm';
 import styled from '@emotion/styled';
-import { Button } from '@mui/material';
+import { Button, Box } from '@mui/material';
 
 
 function LoginPage({ onLogin }) {
@@ -15,23 +15,25 @@ function LoginPage({ onLogin }) {
           <>
             <LoginForm onLogin={onLogin} />
             <Divider />
-            <p>
+            <Box component={'div'} textAlign={'center'}> 
               Don't have an account? &nbsp;
               <Button color="secondary" onClick={() => setShowLogin(false)}>
-                Sign Up
+                  Sign Up
               </Button>
-            </p>
+            </Box>
+            
           </>
         ) : (
           <>
             <SignupForm onLogin={onLogin}/>
             <Divider  />
-            <p>
-              Don't have an account? &nbsp;
+            <Box component={'div'} textAlign={'center'}> 
+              Already have an account? &nbsp;
               <Button color="secondary" onClick={() => setShowLogin(true)}>
-                Login
+                  Login
               </Button>
-            </p>
+            </Box>
+            
           </>
         )}     
       </Wrapper>    
