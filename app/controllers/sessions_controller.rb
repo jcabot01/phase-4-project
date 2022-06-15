@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   #DELETE destroy session hash to logout out user
   ##destroy   /logout
   def destroy
-    session.destroy :user_id
+    session.delete :user_id
     head :no_content
   end 
 
