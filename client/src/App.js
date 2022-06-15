@@ -17,6 +17,7 @@ function App() {
   }, []);
 
   if (!user) return <LoginPage onLogin={setUser} />
+  if (user) return <RvListPage />
 
   // <Route path ="*" element="404 Page Not Found"/>
   return (

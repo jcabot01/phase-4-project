@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :authorize, only: [:create]
+
   #POST create session, place cookie in user browser.  Must pass auth: based on username & password .authenticate?
   #create   /login
   def create 
