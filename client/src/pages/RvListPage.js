@@ -19,11 +19,11 @@ function RvListPage() {
     <Box display="flex">
     <Wrapper>
      {rvs.map((rv) => (
-      <Link component={RouterLink} to={`/reviews/${rv.id}`}>
+      <Link underline='none' component={RouterLink} to={`/rvs/${rv.id}`}>
       <Card key={rv.id} component="div" textAlign='center' sx={{ maxWidth: 345, margin: 2, backgroundColor: '#f6f6f8' }}>
         <CardActionArea>
           <Typography gutterBottom variant="h5" component="div" textAlign={'right'} sx={{ backgroundColor: '#f6f6f8', marginRight: 2 }}>
-            {rv.region}
+            Region: {rv.region}
           </Typography>
           <CardMedia
             component="img"

@@ -31,7 +31,7 @@ function App() {
       <Routes>
         <Route exact path ="/" element={<RvListPage />}/>
         <Route path='/users' element={<UserProfile user={user}/>}/>
-        <Route path='/reviews/:id' element={<RvProfilePage/>}/>
+        <Route path='/rvs/:id' element={<RvProfilePage/>}/>
       </Routes>
     </Router>
     </div>

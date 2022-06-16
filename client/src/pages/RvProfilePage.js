@@ -1,5 +1,7 @@
 import { React, useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
+import RvProfileCard from "../components/RvProfileCard";
+import RvReviewCard from "../components/RvReviewCard";
 
 function RvProfilePage() {
   const { id } = useParams();
@@ -16,9 +18,12 @@ function RvProfilePage() {
       });
     }, [id]);
 
-
+    
   return (
-    <div>{console.log(rv)}</div>
+    <>
+      <RvProfileCard rv={rv}/>
+      <RvReviewCard rv={rv}/>
+    </>
   )
 }
 
