@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom'
 import styled from '@emotion/styled';
-import { Card, CardActionArea, CardMedia, CardContent, Typography, Box } from '@mui/material'
+import { Card, CardActionArea, CardMedia, CardContent, Typography, Box, Link } from '@mui/material'
 
 
 function RvListPage() {
@@ -13,13 +13,13 @@ function RvListPage() {
     .then((rv) => setRvs(rv));
   }, []);
 
-
+//Styling Box and Wrapper are probably redundant.  Might want to do grid that flexs to column on mobile
   return (
     <Box display="flex">
     <Wrapper>
      {rvs.map((rv) => (
+      <Link component={RouterLink} to="/reviews">
       <Card key={rv.id} component="div" textAlign='center' sx={{ maxWidth: 345, margin: 2, backgroundColor: '#f6f6f8' }}>
-        <Link to="/reviews"></Link>
         <CardActionArea>
           <Typography gutterBottom variant="h5" component="div" textAlign={'right'} sx={{ backgroundColor: '#f6f6f8', marginRight: 2 }}>
             {rv.region}
@@ -40,6 +40,7 @@ function RvListPage() {
           </CardContent>
         </CardActionArea>
       </Card>
+      </Link>
     ))}
     </Wrapper>
     </Box>
