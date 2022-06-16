@@ -1,5 +1,5 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Button, Box, AppBar, Toolbar, Typography } from '@mui/material'
 import styled from '@emotion/styled';
 
@@ -21,19 +21,24 @@ function NavBar({ user, setUser }) {  //pass in user.username state so we can re
   //---Logout Button onClick={handleClick}
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" >
         <Toolbar>
           <NavLeft>
-            Hi {user.username}!
+            Hi 
           </NavLeft>
+          <p>&nbsp;&nbsp;</p>
+          <Link to="/users">{user.username}!</Link>
           <Typography variant="h3" component="div" textAlign="center" sx={{ flexGrow: 1 }}>
             RV'n B
           </Typography>
           <NavRight>
-        <Button color="secondary" onClick={handleClick}>
-          Logout
-        </Button>
-      </NavRight>
+            <Button variant="contained" href="/">
+              Vehicles
+            </Button>
+            <Button variant="contained" color="error" onClick={handleClick}>
+              Logout
+            </Button>
+          </NavRight>
         </Toolbar>
       </AppBar>
     </Box>
@@ -52,6 +57,7 @@ const NavLeft = styled.nav`
   gap: 4px;
   position: absolute;
   left: 8px;
+  
 `;
 
 export default NavBar

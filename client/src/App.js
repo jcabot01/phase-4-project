@@ -4,6 +4,8 @@ import LoginPage from "./pages/LoginPage";
 // import Demo from "./Demo";
 import RvListPage from "./pages/RvListPage";
 import NavBar from "./components/NavBar";
+import UserProfile from "./pages/UserProfile";
+import ReviewsPage from "./pages/ReviewsPage";
 
 
 function App() {
@@ -29,7 +31,9 @@ function App() {
     <Router>
       <NavBar user={user} setUser={setUser}/>
       <Routes>
-        <Route path ="/" element={<RvListPage />}/>
+        <Route exact path ="/" element={<RvListPage />}/>
+        <Route path='/users' element={<UserProfile user={user}/>}/>
+        <Route path='/reviews' element={<ReviewsPage/>}/>
       </Routes>
     </Router>
     </div>

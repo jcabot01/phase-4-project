@@ -1,4 +1,5 @@
 import { React, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
 import styled from '@emotion/styled';
 import { Card, CardActionArea, CardMedia, CardContent, Typography, Box } from '@mui/material'
 
@@ -17,11 +18,12 @@ function RvListPage() {
     <Box display="flex">
     <Wrapper>
      {rvs.map((rv) => (
-      <Card key={rv.id} component="div" textAlign='center' sx={{ maxWidth: 345, margin: 2, backgroundColor: '#dcdde3' }}>
+      <Card key={rv.id} component="div" textAlign='center' sx={{ maxWidth: 345, margin: 2, backgroundColor: '#f6f6f8' }}>
+        <Link to="/reviews"></Link>
         <CardActionArea>
-        <Typography gutterBottom variant="h5" component="div" textAlign={'right'} sx={{ backgroundColor: '#dcdde3', marginRight: 2 }}>
-          {rv.region}
-        </Typography>
+          <Typography gutterBottom variant="h5" component="div" textAlign={'right'} sx={{ backgroundColor: '#f6f6f8', marginRight: 2 }}>
+            {rv.region}
+          </Typography>
           <CardMedia
             component="img"
             height="180"
