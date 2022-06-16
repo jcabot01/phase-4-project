@@ -10,15 +10,16 @@ function RvListPage() {
   useEffect(() => {
     fetch("/rvs")
     .then((r) => r.json())
-    .then((rv) => setRvs(rv));
+    .then((rvs) => setRvs(rvs));
   }, []);
 
 //Styling Box and Wrapper are probably redundant.  Might want to do grid that flexs to column on mobile
+//try and add a summary serializer for the description
   return (
     <Box display="flex">
     <Wrapper>
      {rvs.map((rv) => (
-      <Link component={RouterLink} to="/reviews">
+      <Link component={RouterLink} to={`/reviews/${rv.id}`}>
       <Card key={rv.id} component="div" textAlign='center' sx={{ maxWidth: 345, margin: 2, backgroundColor: '#f6f6f8' }}>
         <CardActionArea>
           <Typography gutterBottom variant="h5" component="div" textAlign={'right'} sx={{ backgroundColor: '#f6f6f8', marginRight: 2 }}>

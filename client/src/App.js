@@ -5,7 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import RvListPage from "./pages/RvListPage";
 import NavBar from "./components/NavBar";
 import UserProfile from "./pages/UserProfile";
-import ReviewsPage from "./pages/ReviewsPage";
+import RvProfilePage from "./pages/RvProfilePage";
 
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
       <Routes>
         <Route exact path ="/" element={<RvListPage />}/>
         <Route path='/users' element={<UserProfile user={user}/>}/>
-        <Route path='/reviews' element={<ReviewsPage/>}/>
+        <Route path='/reviews/:id' element={<RvProfilePage/>}/>
       </Routes>
     </Router>
     </div>
