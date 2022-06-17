@@ -10,6 +10,7 @@ import RvProfilePage from "./pages/RvProfilePage";
 
 function App() {
   const [user, setUser] = useState(null)
+  const [rvs, setRvs] = useState([]);
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -19,8 +20,17 @@ function App() {
     });
   }, []);
 
+    useEffect(() => {
+      fetch("/rvs")
+      .then((r) => r.json())
+      .then((rvs) => setRvs(rvs));
+    }, []);
+
   if (!user) return <LoginPage onLogin={setUser} />
- 
+  
+  
+//  console.log(user)
+//  console.log(rvs)
 
   // <Route path ="*" element="404 Page Not Found"/>
  
@@ -29,9 +39,9 @@ function App() {
     <Router>
       <NavBar user={user} setUser={setUser}/>
       <Routes>
-        <Route exact path ="/" element={<RvListPage />}/>
+        <Route exact path ="/" element={<RvListPage rvs={rvs} />}/>
         <Route path='/users' element={<UserProfile user={user}/>}/>
-        <Route path='/rvs/:id' element={<RvProfilePage user={user}/>}/>
+        <Route path='/rvs/:name' element={<RvProfilePage rvs={rvs} user={user}/>}/>
       </Routes>
     </Router>
     </div>

@@ -1,17 +1,11 @@
-import { React, useEffect, useState } from 'react';
+import { React } from 'react';
 import { Link as RouterLink } from 'react-router-dom'
 import styled from '@emotion/styled';
 import { Card, CardActionArea, CardMedia, CardContent, Typography, Box, Link } from '@mui/material'
 
 
-function RvListPage() {
-  const [rvs, setRvs] = useState([]);
-
-  useEffect(() => {
-    fetch("/rvs")
-    .then((r) => r.json())
-    .then((rvs) => setRvs(rvs));
-  }, []);
+function RvListPage({ rvs }) {
+  
 
 //Styling Box and Wrapper are probably redundant.  Might want to do grid that flexs to column on mobile
 //try and add a summary serializer for the description
@@ -19,7 +13,7 @@ function RvListPage() {
     <Box display="flex">
     <Wrapper>
      {rvs.map((rv) => (
-      <Link underline='none' component={RouterLink} to={`/rvs/${rv.id}`}>
+      <Link underline='none' component={RouterLink} to={`/rvs/${rv.name}`}>
       <Card key={rv.id} component="div" textAlign='center' sx={{ maxWidth: 345, margin: 2, backgroundColor: '#f6f6f8' }}>
         <CardActionArea>
           <Typography gutterBottom variant="h5" component="div" textAlign={'right'} sx={{ backgroundColor: '#f6f6f8', marginRight: 2 }}>

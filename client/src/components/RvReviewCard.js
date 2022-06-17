@@ -21,30 +21,27 @@ console.log(user)
   //     {console.log(rv.users)}
   console.log(users)
   console.log(reviews)
+  console.log(rv)
+
   return (
    
     <Box sx={{marginTop: 6, marginRight: 2}}>
       <Stack>
       <Button variant="contained" color='primary' onClick={handleClick} >Click to Rent this RV!</Button> 
-      <Typography sx={{marginTop: 6}}>What our clients have to say about this RV:</Typography>
-      <Card sx={{ minWidth: 275, marginTop: 6 }}>
+      <Typography variant='h5' sx={{marginTop: 6}}>What our clients have to say:</Typography>
+
+      {reviews.map((review) => (
+      <Card key={review.id} sx={{ minWidth: 275, marginTop: 6 }}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-         
-        </Typography>
-        <Typography variant="h5" component="div">
-          be
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          adjective
+         {review.created_at}
         </Typography>
         <Typography variant="body2">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
+          {review.review}
         </Typography>
       </CardContent>
     </Card>
+    ))}
     </Stack>
     </Box>
   )

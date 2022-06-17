@@ -1,10 +1,15 @@
 import { React } from 'react';
-import { Card, CardMedia, CardContent, Typography } from '@mui/material'
+import { useParams } from "react-router-dom";
+import { Card, CardMedia, CardContent, Typography, Box } from '@mui/material'
 
 
 function RvProfileCard({ rv }) {
- 
+  const { name } = useParams();
+  console.log(name)
+  console.log(rv)
   return (
+    <Box>
+    
     <Card key={rv.id} component="div" textAlign='center' sx={{ maxWidth: 345, marginLeft: 4, marginTop: 6, marginRight: 6, backgroundColor: '#f6f6f8' }}>
           <Typography gutterBottom variant="h5" component="div" textAlign={'right'} sx={{ backgroundColor: '#f6f6f8', marginRight: 2 }}>
           Region: {rv.region}
@@ -27,7 +32,8 @@ function RvProfileCard({ rv }) {
             </Typography>
           </CardContent>
       </Card>
-  
+      
+      </Box>
   )
 }
 
