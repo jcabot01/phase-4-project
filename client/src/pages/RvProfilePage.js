@@ -1,10 +1,9 @@
 import { React } from "react";
 import { useParams } from "react-router-dom";
 import RvProfileCard from "../components/RvProfileCard";
-// import RvReviewCard from "../components/RvReviewCard";
 import { Box } from "@mui/material";
 
-function RvProfilePage({ rvs, user }) {
+function RvProfilePage({ rvs, user, onReviewPost }) {
   const { name } = useParams();
 
 //fetchfull card
@@ -19,16 +18,15 @@ function RvProfilePage({ rvs, user }) {
   //     });
   //   }, [id]);
   // console.log(rvs)
-     //{/* <RvReviewCard rv={rv} user={user}/> */}
+ 
   return (
     <>
     <Box display="flex">
-    {rvs
-      .filter((rv) => rv.name === name)
-      .map((rv) => (
-      <RvProfileCard rv={rv}/> 
-     
-    ))}
+      {rvs
+        .filter((rv) => rv.name === name)
+        .map((rv) => (
+        <RvProfileCard user={user} rv={rv} onReviewPost={onReviewPost}/> 
+      ))}
     </Box>
     </>
   )

@@ -26,6 +26,15 @@ function App() {
       .then((rvs) => setRvs(rvs));
     }, []);
 
+    function onReviewPost(obj){
+      console.log(obj)
+    }
+    // useEffect(() => {
+    //   fetch("/reviews")
+    //   .then((r) => r.json())
+    //   .then((rvs) => setRvs(reviews));
+    // }, []);    
+
   if (!user) return <LoginPage onLogin={setUser} />
   
   
@@ -41,7 +50,7 @@ function App() {
       <Routes>
         <Route exact path ="/" element={<RvListPage rvs={rvs} />}/>
         <Route path='/users' element={<UserProfile user={user}/>}/>
-        <Route path='/rvs/:name' element={<RvProfilePage rvs={rvs} user={user}/>}/>
+        <Route path='/rvs/:name' element={<RvProfilePage rvs={rvs} user={user} onReviewPost={onReviewPost}/>}/>
       </Routes>
     </Router>
     </div>

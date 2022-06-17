@@ -1,42 +1,95 @@
-import { React } from 'react';
-import { useParams } from "react-router-dom";
-import { Card, CardMedia, CardContent, Typography, Box } from '@mui/material'
+import { React, useState } from 'react';
+import { Card, CardMedia, CardContent, Typography, Box, Stack, Button } from '@mui/material'
+import styled from '@emotion/styled';
+
+function RvProfileCard({ user, rv, onReviewPost }) {
+  const [errors, setErrors] = useState([])
+  const reviewObject = {
+    review: "",
+    rv_id: rv.id,
+    user_id: user.id
+  };
+  // let review = ""
+  // let rvId = rv.id
+  // let userId = user.id
 
 
-function RvProfileCard({ rv }) {
-  const { name } = useParams();
-  console.log(name)
-  console.log(rv)
-  return (
-    <Box>
+  function handleClick(){
+    //POST /reviews   send up to App so that RvProfilePage=>RvReviewCard can receive the review
     
-    <Card key={rv.id} component="div" textAlign='center' sx={{ maxWidth: 345, marginLeft: 4, marginTop: 6, marginRight: 6, backgroundColor: '#f6f6f8' }}>
-          <Typography gutterBottom variant="h5" component="div" textAlign={'right'} sx={{ backgroundColor: '#f6f6f8', marginRight: 2 }}>
-          Region: {rv.region}
-          </Typography>
-          <CardMedia
-            component="img"
-            height="180"
-            image={rv.image_url}
-            alt="recreation vehicle"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div" textAlign="center" sx={{ backgroundColor: 'white' }}>
-              {rv.name}
+      setErrors([]);
+      fetch("/reviews", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(reviewObject)
+      }).then((r) => {
+        if (r.ok) {
+          r.json().then((blankReview) => onReviewPost(blankReview));
+        } else {
+          r.json().then((err) => setErrors(err.errors));
+        }
+      });
+  // console.log(review)
+  // console.log(rvId)
+  // console.log(userId)
+  
+  }
+  
+
+ console.log(rv)
+  return (
+    <Box component="div">
+            
+      <Card key={rv.id} component="div" textAlign='center' sx={{ maxWidth: 345, marginLeft: 4, marginTop: 6, marginRight: 6, backgroundColor: '#f6f6f8' }}>
+            <Typography gutterBottom variant="h5" component="div" textAlign={'right'} sx={{ backgroundColor: '#f6f6f8', marginRight: 2 }}>
+            Region: {rv.region}
             </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ backgroundColor: 'white' }}>
-              {rv.description}
-            </Typography>
-            <Typography variant="body2" color="text.secondary" textAlign={'right'} sx={{ backgroundColor: 'white' }}>
-              Est. Mileage - {rv.mileage}
-            </Typography>
-          </CardContent>
-      </Card>
-      
+            <CardMedia
+              component="img"
+              height="180"
+              image={rv.image_url}
+              alt="recreation vehicle"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div" textAlign="center" sx={{ backgroundColor: 'white' }}>
+                {rv.name}
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ backgroundColor: 'white' }}>
+                {rv.description}
+              </Typography>
+              <Typography variant="body2" color="text.secondary" textAlign={'right'} sx={{ backgroundColor: 'white' }}>
+                Est. Mileage - {rv.mileage}
+              </Typography>
+            </CardContent>
+        </Card>
+        <Box sx={{marginTop: 6, marginRight: 2}}>
+          <Stack>
+          <Button variant="contained" color='primary' onClick={handleClick} >Click to Rent this RV!</Button>
+          <Wrapper>
+              {errors.map((err) => (
+                <Typography key={err} >{err}</Typography>
+              ))}
+          </Wrapper> 
+          <Typography variant='h5' sx={{marginTop: 6}}>What our clients have to say:</Typography>
+        {rv.reviews.map((review) => (
+          <Card sx={{ marginTop: 4 }} >
+            <Typography>{review.created_at.slice(0, 10)}</Typography>
+            <Typography>{review.review}</Typography>
+            <Typography>{review.user.username}</Typography>
+           
+          </Card>
+        ))}
+          </Stack>
+        </Box>        
       </Box>
   )
 }
 
-
+const Wrapper = styled.section`
+  max-width: 296px;
+  margin: auto;
+`;
 
 export default RvProfileCard
