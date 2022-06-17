@@ -2,8 +2,9 @@ import { React, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import RvProfileCard from "../components/RvProfileCard";
 import RvReviewCard from "../components/RvReviewCard";
+import { Box } from "@mui/material";
 
-function RvProfilePage() {
+function RvProfilePage({ user }) {
   const { id } = useParams();
 
 //fetchfull card
@@ -21,8 +22,10 @@ function RvProfilePage() {
     
   return (
     <>
+    <Box display="flex">
       <RvProfileCard rv={rv}/>
-      <RvReviewCard rv={rv}/>
+      <RvReviewCard rv={rv} user={user}/>
+    </Box>
     </>
   )
 }

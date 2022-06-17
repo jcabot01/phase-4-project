@@ -5,7 +5,7 @@ import { Card, CardMedia, CardContent, Typography } from '@mui/material'
 function RvProfileCard({ rv }) {
  
   return (
-    <Card key={rv.id} component="div" textAlign='center' sx={{ maxWidth: 345, margin: 6, backgroundColor: '#f6f6f8' }}>
+    <Card key={rv.id} component="div" textAlign='center' sx={{ maxWidth: 345, marginLeft: 4, marginTop: 6, marginRight: 6, backgroundColor: '#f6f6f8' }}>
           <Typography gutterBottom variant="h5" component="div" textAlign={'right'} sx={{ backgroundColor: '#f6f6f8', marginRight: 2 }}>
           Region: {rv.region}
           </Typography>
