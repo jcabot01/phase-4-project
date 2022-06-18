@@ -34,10 +34,9 @@ function RvProfileCard({ user, rv, onReviewPost }) {
 //  console.log(rv)
   return (
     <Box component="div">
-            
       <Card key={rv.id} component="div" textAlign='center' sx={{ maxWidth: 345, marginLeft: 4, marginTop: 6, marginRight: 6, backgroundColor: '#f6f6f8' }}>
             <Typography gutterBottom variant="h5" component="div" textAlign={'right'} sx={{ backgroundColor: '#f6f6f8', marginRight: 2 }}>
-            Region: {rv.region}
+              Region: {rv.region}
             </Typography>
             <CardMedia
               component="img"
@@ -56,24 +55,24 @@ function RvProfileCard({ user, rv, onReviewPost }) {
                 Est. Mileage - {rv.mileage}
               </Typography>
             </CardContent>
-        </Card>
+      </Card>
+
         <Box sx={{marginTop: 6, marginRight: 2}}>
           <Stack>
-          <Button variant="contained" color='primary' onClick={handleClick} >Click to Rent this RV!</Button>
-          <Wrapper>
-              {errors.map((err) => (
-                <Typography key={err} >{err}</Typography>
-              ))}
-          </Wrapper> 
-          <Typography variant='h5' sx={{marginTop: 6}}>What our clients have to say:</Typography>
-        {rv.reviews.map((review) => (
-          <Card sx={{ marginTop: 4 }} >
-            <Typography>{review.created_at.slice(0, 10)}</Typography>
-            <Typography>{review.review}</Typography>
-            <Typography>{review.user.username}</Typography>
-           
-          </Card>
-        ))}
+            <Button variant="contained" color='primary' onClick={handleClick} >Click to Rent this RV!</Button>
+            <Wrapper>
+                {errors.map((err) => (
+                  <Typography key={err} >{err}</Typography>
+                ))}
+            </Wrapper> 
+            <Typography variant='h5' sx={{marginTop: 6}}>What our clients have to say:</Typography>
+          {rv.reviews.map((review) => (
+            <Card sx={{ marginTop: 4 }} >
+              <Typography>{review.created_at.slice(0, 10)}</Typography>
+              <Typography>{review.review}</Typography>
+              <Typography>{review.user.username}</Typography>
+            </Card>
+          ))}
           </Stack>
         </Box>        
       </Box>

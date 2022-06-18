@@ -15,11 +15,18 @@ function UserProfile({ user }) {
       .then((reviews) => setReviews(reviews));
     }, []); 
 
-  //create a <Box> 
-      //containing UserRentalsCard 
-      //{user.username} here's the vehicles you've rented previously...
-      //(contains mini RvProfile(name, pic, region), review: review === null ? PLEASE LEAVE A REVIEW : review )
-   
+ 
+    function onEditedReview(updatedReviewObj) {
+      const updatedReviews = reviews.map((review) => {
+        if (review.id === updatedReviewObj.id) {
+          return updatedReviewObj
+        } else {
+          return review;
+        }
+      });
+      setReviews(updatedReviews)
+    }
+
   return (
     <>
     <Box>
@@ -29,7 +36,8 @@ function UserProfile({ user }) {
       .filter((review) => review.user_id === user.id) 
       .map((review) => (
         <Box component='div' key={review.id}>
-          <UserRentalsCard review={review} user={user} />
+          <UserRentalsCard review={review} user={user} onEditedReview={onEditedReview} />
+          
         </Box>
       ))}
     </Box>
