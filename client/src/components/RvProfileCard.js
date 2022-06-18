@@ -1,4 +1,5 @@
 import { React, useState } from 'react';
+// import { Link } from 'react-router-dom';
 import { Card, CardMedia, CardContent, Typography, Box, Stack, Button } from '@mui/material'
 import styled from '@emotion/styled';
 
@@ -9,10 +10,6 @@ function RvProfileCard({ user, rv, onReviewPost }) {
     rv_id: rv.id,
     user_id: user.id
   };
-  // let review = ""
-  // let rvId = rv.id
-  // let userId = user.id
-
 
   function handleClick(){
     //POST /reviews   send up to App so that RvProfilePage=>RvReviewCard can receive the review
@@ -30,15 +27,11 @@ function RvProfileCard({ user, rv, onReviewPost }) {
         } else {
           r.json().then((err) => setErrors(err.errors));
         }
-      });
-  // console.log(review)
-  // console.log(rvId)
-  // console.log(userId)
-  
+      });  
   }
   
 
- console.log(rv)
+//  console.log(rv)
   return (
     <Box component="div">
             

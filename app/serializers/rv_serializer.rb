@@ -1,5 +1,5 @@
 class RvSerializer < ActiveModel::Serializer
-  attributes :id, :name, :image_url, :region, :description, :mileage
+  attributes :id, :name, :image_url, :region, :description, :mileage, :reviews
 
   #belongs_to :users
   has_many :users

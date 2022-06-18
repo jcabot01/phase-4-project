@@ -20,11 +20,11 @@ function App() {
     });
   }, []);
 
-    useEffect(() => {
-      fetch("/rvs")
-      .then((r) => r.json())
-      .then((rvs) => setRvs(rvs));
-    }, []);
+  useEffect(() => {
+    fetch("/rvs")
+    .then((r) => r.json())
+    .then((rvs) => setRvs(rvs));
+  }, []);
 
     function onReviewPost(obj){
       console.log(obj)
