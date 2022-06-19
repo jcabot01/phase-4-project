@@ -57,9 +57,10 @@ function RvProfileCard({ user, rv, onReviewPost }) {
 
         <Box sx={{marginTop: 6, marginRight: 2}}>
           <Stack>
-            <Link href="/users">
+            <Link href="/user_profile">
               <Button variant="contained" color='primary' onClick={handleClick} >Click to Rent this RV!</Button>
             </Link>
+            <Typography>Don't forget to leave a review!</Typography>
             <Wrapper>
                 {errors.map((err) => (
                   <Typography key={err} >{err}</Typography>

@@ -1,14 +1,19 @@
 import React from "react"
 import RvListCard from "../components/RvListCard"
-import { FormGroup, Checkbox, FormControlLabel } from "@mui/material";
+import { FormGroup, Checkbox, FormControlLabel, Typography, Box } from "@mui/material";
 
 
-function RvListPage({ rvs, regionToggleNames, regionSelect, setRegionSelect }) {
+function RvListPage({ rvs, regionToggleNames, setRegionSelect }) {
   const regionBoxes = regionToggleNames.map((region) => {
-    // const label = region === regionSelect ? "selected" : null;
+    
     return(
       <FormGroup>
-        <FormControlLabel control={<Checkbox defaultCheckled />} label={region}/>
+        <FormControlLabel 
+          control={<Checkbox 
+                      defaultChecked
+                      onChange={() => setRegionSelect(region)}
+                  />}
+          label={region}/>
       </FormGroup>
     )
   })
@@ -17,6 +22,9 @@ function RvListPage({ rvs, regionToggleNames, regionSelect, setRegionSelect }) {
       <>
       {regionBoxes}
       </>
+      <Box>
+        <Typography>Welcome to RV'n B!  Search below to find your next getaway:</Typography>
+      </Box>
       {rvs.map((rv) => (
         <RvListCard key ={rv.id} rv={rv}/>
         )

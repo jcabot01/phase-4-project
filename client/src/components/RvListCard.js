@@ -5,7 +5,7 @@ import { Card, CardActionArea, CardMedia, CardContent, Typography, Box, Link, To
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 function RvListCard({ rv }) {
-  const [selected, setSelected] = useState(true);
+  const [isLiked, setIsLiked] = useState(true);
 
 //Styling Box and Wrapper are probably redundant.  Might want to do grid that flexs to column on mobile
 //try and add a summary serializer for the description
@@ -14,19 +14,19 @@ function RvListCard({ rv }) {
     <Wrapper>
      
       <Box>
-        {selected ? (
+        {isLiked ? (
           <ToggleButton
             value="check"
-            selected={selected}
-            onChange={() => setSelected(!selected)}>
+            selected={isLiked}
+            onChange={() => setIsLiked(!isLiked)}>
             <FavoriteIcon 
               color='disabled'/>
           </ToggleButton>
         ) : (
           <ToggleButton
             value="check"
-            selected={selected}
-            onChange={() => setSelected(!selected)}>
+            selected={isLiked}
+            onChange={() => setIsLiked(!isLiked)}>
             <FavoriteIcon 
               sx={{ color: "darkmagenta"}}/>
           </ToggleButton>

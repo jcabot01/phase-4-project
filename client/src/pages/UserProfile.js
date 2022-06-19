@@ -1,36 +1,33 @@
 import {React, useState, useEffect } from 'react'
 import UserRentalsCard from '../components/UserRentalsCard'
-import { Box, Typography } from '@mui/material' //, Card, CardMedia, CardContent, CardActionArea 
-// import styled from '@emotion/styled'
+import { Box, Typography } from '@mui/material'
+
 
 function UserProfile({ user }) {
   const [reviews, setReviews] = useState([])
-  // console.log(user) //user has everything; user(singluar) data, reviews made, rvs rented
-  // console.log(user.rvs) //needs to be mapped
-  // console.log(user.reviews) //needs to be mapped
+  
+  useEffect(() => {
+    fetch("/reviews")
+    .then((r) => r.json())
+    .then((reviews) => setReviews(reviews));
+  }, []); 
 
-    useEffect(() => {
-      fetch("/reviews")
-      .then((r) => r.json())
-      .then((reviews) => setReviews(reviews));
-    }, []); 
 
- 
-    function onEditedReview(updatedReviewObj) {
-      const updatedReviews = reviews.map((review) => {
-        if (review.id === updatedReviewObj.id) {
-          return updatedReviewObj
-        } else {
-          return review;
-        }
-      });
-      setReviews(updatedReviews)
-    };
+  function onEditedReview(updatedReviewObj) {
+    const updatedReviews = reviews.map((review) => {
+      if (review.id === updatedReviewObj.id) {
+        return updatedReviewObj
+      } else {
+        return review;
+      }
+    });
+    setReviews(updatedReviews)
+  };
 
-    function onDeleteClick(id) {
-      const remainingReviews = reviews.filter((review) => review.id !== id)
-      setReviews(remainingReviews)
-    }
+  function onDeleteClick(id) {
+    const remainingReviews = reviews.filter((review) => review.id !== id)
+    setReviews(remainingReviews)
+  }
 
   return (
     <>

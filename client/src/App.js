@@ -1,7 +1,6 @@
 import { React, useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
-// import Demo from "./Demo";
 import RvListPage from "./pages/RvListPage";
 import NavBar from "./components/NavBar";
 import UserProfile from "./pages/UserProfile";
@@ -31,18 +30,19 @@ function App() {
       console.log(obj)
     }
   
-  const regionToggleNames = ["All", "HTX", "DFW", "ATX"]
+  
 
   if (!user) return <LoginPage onLogin={setUser} />
   // <Route path ="*" element="404 Page Not Found"/>
- 
+  const regionToggleNames = ["All", "HTX", "DFW", "ATX"]
+  const filteredRegions = rvs.filter((rv) => regionSelect === "All" || rv.region === regionSelect )
   return (
     <div>
     <Router>
       <NavBar user={user} setUser={setUser}/>
       <Routes>
-        <Route exact path ="/" element={<RvListPage rvs={rvs} regionToggleNames={regionToggleNames} regionSelect={regionSelect} setRegionSelect={setRegionSelect}/>}/>
-        <Route path='/users' element={<UserProfile user={user}/>}/>
+        <Route exact path ="/" element={<RvListPage rvs={filteredRegions} regionToggleNames={regionToggleNames} regionSelect={regionSelect} setRegionSelect={setRegionSelect}/>}/>
+        <Route path='/user_profile' element={<UserProfile user={user}/>}/>
         <Route path='/rvs/:name' element={<RvProfilePage rvs={rvs} user={user} onReviewPost={onReviewPost} />}/>
       </Routes>
     </Router>

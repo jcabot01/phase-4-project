@@ -27,7 +27,7 @@ function NavBar({ user, setUser }) {  //pass in user.username state so we can re
             Hi 
           </NavLeft>
           <p>&nbsp;&nbsp;</p>
-          <Link to="/users">{user.username}!</Link>
+          <Link to="/user_profile">{user.username}!</Link>
           <Typography variant="h3" component="div" textAlign="center" sx={{ flexGrow: 1 }}>
             RV'n B
           </Typography>

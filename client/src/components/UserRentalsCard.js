@@ -3,15 +3,7 @@ import ReviewCRUDDialogForm from './ReviewCRUDDialogForm'
 import { Box, Typography, Card, CardMedia, CardContent, CardActionArea  } from '@mui/material'
 import styled from '@emotion/styled'
 
-function UserRentalsCard({ review, user, onEditedReview, onDeleteClick }) {
-//users to RVS
-// console.log(user)
-// console.log(review)
-
-
-  //
-  //DELETE fetch to db => send reviews state up APP and return ...rvs.filter((rv) => rv.id !== id) 
-  //PATCH fetch here for update
+function UserRentalsCard({ review, onEditedReview, onDeleteClick }) {
 
   return (
     <Box>

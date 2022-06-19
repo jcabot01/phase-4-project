@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import { Typography, TextField, Box, Button } from '@mui/material';
+import { Typography, TextField, Box, Button, Link } from '@mui/material';
 import styled from '@emotion/styled';
 
 function SignupForm({ onLogin }) {
@@ -54,15 +54,18 @@ function SignupForm({ onLogin }) {
             type={'password'}
             sx={{ margin: 1 }} 
             placeholder='Confirm Password' 
-            variant='outlined'/>
-          <Button 
-            type='submit'
-            color="secondary"
-            variant="contained" 
-            sx={{ borderRadius: 2, margin: 3}}
+            variant='outlined'
+          />
+          <Link href="/">
+            <Button 
+              type='submit'
+              color="secondary"
+              variant="contained" 
+              sx={{ borderRadius: 2, margin: 3}}
             >
               Submit
-          </Button>
+            </Button>
+          </Link>
         </form>
           <Wrapper>
             {errors.map((err) => (

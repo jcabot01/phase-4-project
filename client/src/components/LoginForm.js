@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 // import { useNavigate } from "react-router-dom";
-import { TextField, Button, Typography, Box } from '@mui/material';
+import { TextField, Button, Typography, Box, Link } from '@mui/material';
 import styled from '@emotion/styled';
 
 function LoginForm({ onLogin }) {
@@ -50,14 +50,16 @@ function LoginForm({ onLogin }) {
                 placeholder="Password"
                 sx={{width: '28ch', margin: 1 }}
               />
-              <Button 
-                type='submit'
-                color="secondary"
-                variant="contained" 
-                sx={{ borderRadius: 2, margin: 3}}
-              >
-                Submit
-              </Button>
+              <Link href="/">
+                <Button 
+                  type='submit'
+                  color="secondary"
+                  variant="contained" 
+                  sx={{ borderRadius: 2, margin: 3}}
+                >
+                  Submit
+                </Button>
+              </Link>
               {errors.map((err) => (
                 <Typography key={err} >{err}</Typography>
               ))}
