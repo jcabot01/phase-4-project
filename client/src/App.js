@@ -11,6 +11,7 @@ import RvProfilePage from "./pages/RvProfilePage";
 function App() {
   const [user, setUser] = useState(null)
   const [rvs, setRvs] = useState([]);
+  const [regionSelect, setRegionSelect] = useState("All")
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -29,18 +30,10 @@ function App() {
     function onReviewPost(obj){
       console.log(obj)
     }
-    // useEffect(() => {
-    //   fetch("/reviews")
-    //   .then((r) => r.json())
-    //   .then((rvs) => setRvs(reviews));
-    // }, []);    
+  
+  const regionToggleNames = ["All", "HTX", "DFW", "ATX"]
 
   if (!user) return <LoginPage onLogin={setUser} />
-  
-  
-//  console.log(user)
-//  console.log(rvs)
-
   // <Route path ="*" element="404 Page Not Found"/>
  
   return (
@@ -48,9 +41,9 @@ function App() {
     <Router>
       <NavBar user={user} setUser={setUser}/>
       <Routes>
-        <Route exact path ="/" element={<RvListPage rvs={rvs} />}/>
+        <Route exact path ="/" element={<RvListPage rvs={rvs} regionToggleNames={regionToggleNames} regionSelect={regionSelect} setRegionSelect={setRegionSelect}/>}/>
         <Route path='/users' element={<UserProfile user={user}/>}/>
-        <Route path='/rvs/:name' element={<RvProfilePage rvs={rvs} user={user} onReviewPost={onReviewPost}/>}/>
+        <Route path='/rvs/:name' element={<RvProfilePage rvs={rvs} user={user} onReviewPost={onReviewPost} />}/>
       </Routes>
     </Router>
     </div>

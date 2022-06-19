@@ -1,52 +1,28 @@
-import { React } from 'react';
-import { Link as RouterLink } from 'react-router-dom'
-import styled from '@emotion/styled';
-import { Card, CardActionArea, CardMedia, CardContent, Typography, Box, Link } from '@mui/material'
+import React from "react"
+import RvListCard from "../components/RvListCard"
+import { FormGroup, Checkbox, FormControlLabel } from "@mui/material";
 
 
-function RvListPage({ rvs }) {
-  
-
-//Styling Box and Wrapper are probably redundant.  Might want to do grid that flexs to column on mobile
-//try and add a summary serializer for the description
-  return (
-    <Box display="flex">
-    <Wrapper>
-     {rvs.map((rv) => (
-      <Link underline='none' component={RouterLink} to={`/rvs/${rv.name}`}>
-      <Card key={rv.id} component="div" textAlign='center' sx={{ maxWidth: 345, margin: 2, backgroundColor: '#f6f6f8' }}>
-        <CardActionArea>
-          <Typography gutterBottom variant="h5" component="div" textAlign={'right'} sx={{ backgroundColor: '#f6f6f8', marginRight: 2 }}>
-            Region: {rv.region}
-          </Typography>
-          <CardMedia
-            component="img"
-            height="180"
-            image={rv.image_url}
-            alt="recreation vehicle"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div" textAlign="center" sx={{ backgroundColor: 'white' }}>
-              {rv.name}
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ backgroundColor: 'white' }}>
-              {rv.description}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
-      </Link>
-    ))}
-    </Wrapper>
-    </Box>
+function RvListPage({ rvs, regionToggleNames, regionSelect, setRegionSelect }) {
+  const regionBoxes = regionToggleNames.map((region) => {
+    // const label = region === regionSelect ? "selected" : null;
+    return(
+      <FormGroup>
+        <FormControlLabel control={<Checkbox defaultCheckled />} label={region}/>
+      </FormGroup>
+    )
+  })
+  return(
+    <>
+      <>
+      {regionBoxes}
+      </>
+      {rvs.map((rv) => (
+        <RvListCard key ={rv.id} rv={rv}/>
+        )
+      )}
+    </>
   )
 }
-
-const Wrapper = styled.section`
-  max-width: 800px;
-  margin: 300px auto;
-`;
-
-
 
 export default RvListPage
