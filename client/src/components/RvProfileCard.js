@@ -1,12 +1,12 @@
 import { React, useState } from 'react';
 // import { Link } from 'react-router-dom';
-import { Card, CardMedia, CardContent, Typography, Box, Stack, Button } from '@mui/material'
+import { Card, CardMedia, CardContent, Typography, Box, Stack, Button, Link } from '@mui/material'
 import styled from '@emotion/styled';
 
 function RvProfileCard({ user, rv, onReviewPost }) {
   const [errors, setErrors] = useState([])
   const reviewObject = {
-    review: "",
+    review: "", //`NO REVIEW YET FROM ${user.username}.`,
     rv_id: rv.id,
     user_id: user.id
   };
@@ -28,10 +28,8 @@ function RvProfileCard({ user, rv, onReviewPost }) {
           r.json().then((err) => setErrors(err.errors));
         }
       });  
-  }
+  };
   
-
-//  console.log(rv)
   return (
     <Box component="div">
       <Card key={rv.id} component="div" textAlign='center' sx={{ maxWidth: 345, marginLeft: 4, marginTop: 6, marginRight: 6, backgroundColor: '#f6f6f8' }}>
@@ -59,7 +57,9 @@ function RvProfileCard({ user, rv, onReviewPost }) {
 
         <Box sx={{marginTop: 6, marginRight: 2}}>
           <Stack>
-            <Button variant="contained" color='primary' onClick={handleClick} >Click to Rent this RV!</Button>
+            <Link href="/users">
+              <Button variant="contained" color='primary' onClick={handleClick} >Click to Rent this RV!</Button>
+            </Link>
             <Wrapper>
                 {errors.map((err) => (
                   <Typography key={err} >{err}</Typography>

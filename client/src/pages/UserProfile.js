@@ -25,6 +25,11 @@ function UserProfile({ user }) {
         }
       });
       setReviews(updatedReviews)
+    };
+
+    function onDeleteClick(id) {
+      const remainingReviews = reviews.filter((review) => review.id !== id)
+      setReviews(remainingReviews)
     }
 
   return (
@@ -36,7 +41,7 @@ function UserProfile({ user }) {
       .filter((review) => review.user_id === user.id) 
       .map((review) => (
         <Box component='div' key={review.id}>
-          <UserRentalsCard review={review} user={user} onEditedReview={onEditedReview} />
+          <UserRentalsCard review={review} user={user} onEditedReview={onEditedReview} onDeleteClick={onDeleteClick} />
           
         </Box>
       ))}

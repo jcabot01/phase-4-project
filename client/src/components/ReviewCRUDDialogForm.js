@@ -1,13 +1,9 @@
 import { React, useState } from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
+import { Button, TextField, Dialog, DialogActions, DialogContent, DialogTitle, Box }from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-function ReviewCRUDDialogForm({ review, onEditedReview }) {
+function ReviewCRUDDialogForm({ review, onEditedReview, onDeleteClick }) {
   const [open, setOpen] = useState(false);
   const [updatedReview, setUpdatedReview] = useState("")
 
@@ -23,28 +19,36 @@ function ReviewCRUDDialogForm({ review, onEditedReview }) {
   function handleSubmit(e){
     e.preventDefault()
     console.log(updatedReview)
-  }
-  //   const updatedReviewObject = {
-  //     review: updatedReview
-  //   }
+  
+    const updatedReviewObject = {
+      review: updatedReview
+    }
 
-  //   fetch(`/reviews/${review.id}`, {
-  //     method: "PATCH",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify(updatedReviewObject)
-  //   })
-  //     .then((res) => res.json())
-  //     .then((editedReview) => onEditedReview(editedReview))
-  // };
+    fetch(`/reviews/${review.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(updatedReviewObject)
+    })
+      .then((res) => res.json())
+      .then((editedReview) => onEditedReview(editedReview))
+  };
 
   function handleChange(e) {
     setUpdatedReview(e.target.value)
   }
+
+  function handleDelete(){
+    fetch(`/reviews/${review.id}`, {
+      method: "DELETE",
+    })
+    onDeleteClick(review.id)
+  };
   
   return (
-    <div>
+    <>
+    <Box>
       <EditIcon onClick={handleClickOpen} />
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Edit your review</DialogTitle>
@@ -76,7 +80,11 @@ function ReviewCRUDDialogForm({ review, onEditedReview }) {
             </Button>
           </DialogActions>
       </Dialog>
-    </div>
+    </Box>
+    <Box>
+      <DeleteIcon onClick={handleDelete}/>
+    </Box>
+    </>
   );
 }
 

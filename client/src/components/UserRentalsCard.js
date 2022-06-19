@@ -3,7 +3,7 @@ import ReviewCRUDDialogForm from './ReviewCRUDDialogForm'
 import { Box, Typography, Card, CardMedia, CardContent, CardActionArea  } from '@mui/material'
 import styled from '@emotion/styled'
 
-function UserRentalsCard({ review, user, onEditedReview }) {
+function UserRentalsCard({ review, user, onEditedReview, onDeleteClick }) {
 //users to RVS
 // console.log(user)
 // console.log(review)
@@ -32,11 +32,12 @@ function UserRentalsCard({ review, user, onEditedReview }) {
                 <Typography gutterBottom variant="h5" component="div" textAlign="center" sx={{ backgroundColor: 'white' }}>
                   {review.rv.name}
                 </Typography>
+                <Typography>{review.created_at.slice(0, 10)}</Typography>
                 <Typography variant="body2" color="text.secondary" sx={{ backgroundColor: 'white' }}>
                   {review.review}
                 </Typography>
                 <CardActionArea>
-                  <ReviewCRUDDialogForm review={review} onEditedReview={onEditedReview}/>
+                  <ReviewCRUDDialogForm review={review} onEditedReview={onEditedReview} onDeleteClick={onDeleteClick}/>
                 </CardActionArea>
               </CardContent>
             
