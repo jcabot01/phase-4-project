@@ -24,7 +24,7 @@ function NavBar({ user, setUser }) {  //pass in user.username state so we can re
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Paper style={styles.paperContainer} sx={{height: 190, minWidth: 528, borderRadius: 5}}>
+      <Paper style={styles.paperContainer} sx={{height: 200, minWidth: 528, borderRadius: 5}}>
       {/* <AppBar position="static" sx={{borderRadius: 5, backgroundColor: }}> */}
         <Toolbar>
           <Button variant='outlined' size='small' sx={{backgroundColor: 'purple', marginTop: 1}}>
@@ -82,7 +82,7 @@ const NavLeft = styled.nav`
 
 const Logo = styled.h1`
   font-family: "Over the Rainbow", cursive;
-  font-size: 3em;
+  font-size: 3.5em;
   color: white;
 `;
 

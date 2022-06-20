@@ -8,7 +8,7 @@ function RvProfilePage({ rvs, user, onReviewPost }) {
    
   return (
     <>
-    <Box display="flex">
+    <Box>
       {rvs
         .filter((rv) => rv.name === name)
         .map((rv) => (
