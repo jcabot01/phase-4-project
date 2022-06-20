@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 // import { useNavigate } from "react-router-dom";
 import { TextField, Button, Typography, Box, Link } from '@mui/material';
-import styled from '@emotion/styled';
+
 
 function LoginForm({ onLogin }) {
   // const navigate = useNavigate();
@@ -29,10 +29,8 @@ function LoginForm({ onLogin }) {
   }
 
   return (
-    <div>
-      <Wrapper>
-        <Box textAlign={'center'}>    
-          <Logo>RV'n B</Logo>  
+    <Box component="div" sx={{}}>
+        <Box textAlign={'center'}>     
           <Typography variant='h4' fontFamily={'cursive'} sx={{ color: "black", }}>Log In</Typography>
           <form onSubmit={handleSubmit}>
               <TextField 
@@ -40,7 +38,7 @@ function LoginForm({ onLogin }) {
                 id="Username"  
                 variant="outlined"
                 placeholder="Username"
-                sx={{width: '28ch', margin: 2 }}
+                sx={{width: '28ch', margin: 2, backgroundColor: '#ffffff' }}
               />
               <TextField 
                 value={password} onChange={(e) => setPassword(e.target.value)}
@@ -48,7 +46,7 @@ function LoginForm({ onLogin }) {
                 type={'password'}  
                 variant="outlined"
                 placeholder="Password"
-                sx={{width: '28ch', margin: 1 }}
+                sx={{width: '28ch', margin: 1, backgroundColor: '#ffffff' }}
               />
               <Link href="/">
                 <Button 
@@ -64,27 +62,16 @@ function LoginForm({ onLogin }) {
                 <Typography key={err} >{err}</Typography>
               ))}
           </form>
-          <Wrapper>
+          
               {errors.map((err) => (
                 <Typography key={err} >{err}</Typography>
               ))}
-          </Wrapper>     
+               
         </Box>
-      </Wrapper>
-  </div>
+  </Box>
   )
 }
 
-const Logo = styled.h1`
-  font-family: "Permanent Marker", cursive;
-  font-size: 3rem;
-  color: deeppink;
-  margin: 8px 0 16px;
-`;
 
-const Wrapper = styled.section`
-  max-width: 296px;
-  margin: auto;
-`;
 
 export default LoginForm

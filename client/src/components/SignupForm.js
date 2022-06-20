@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import { Typography, TextField, Box, Button, Link } from '@mui/material';
-import styled from '@emotion/styled';
+
 
 function SignupForm({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -32,27 +32,26 @@ function SignupForm({ onLogin }) {
 
   return (
     <div>
-    <Wrapper>
       <Box textAlign={'center'}> 
-        <Logo>RV'n B</Logo>     
+            
         <Typography variant='h4' fontFamily={'cursive'} sx={{ color: "black", }}>Sign Up</Typography>
         <form onSubmit={handleSubmit}>
           <TextField 
             value={username} onChange={(e) => setUsername(e.target.value)}
             type={'text'}
-            sx={{ margin: 1 }} 
+            sx={{ margin: 1, backgroundColor: '#ffffff' }} 
             placeholder='Username' 
             variant='outlined'/>
           <TextField 
             value={password} onChange={(e) => setPassword(e.target.value)}
             type={'password'}
-            sx={{ margin: 1 }} 
+            sx={{ margin: 1, backgroundColor: '#ffffff' }} 
             placeholder='Password' 
             variant='outlined'/>
           <TextField 
             value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}
             type={'password'}
-            sx={{ margin: 1 }} 
+            sx={{ margin: 1, backgroundColor: '#ffffff' }} 
             placeholder='Confirm Password' 
             variant='outlined'
           />
@@ -67,27 +66,18 @@ function SignupForm({ onLogin }) {
             </Button>
           </Link>
         </form>
-          <Wrapper>
+          
             {errors.map((err) => (
               <Typography key={err} align='center'>{err}</Typography>
             ))}
-          </Wrapper>     
+             
       </Box>
-    </Wrapper>
+    
   </div>
   )
 }
 
-const Wrapper = styled.section`
-  max-width: 296px;
-  margin: auto;
-`;
 
-const Logo = styled.h1`
-  font-family: "Permanent Marker", cursive;
-  font-size: 3rem;
-  color: deeppink;
-  margin: 8px 0 16px;
-`;
+
 
 export default SignupForm
