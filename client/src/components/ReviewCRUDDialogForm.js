@@ -47,44 +47,44 @@ function ReviewCRUDDialogForm({ review, onEditedReview, onDeleteClick }) {
   };
   
   return (
-    <>
-    <Box>
-      <EditIcon onClick={handleClickOpen} />
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Edit your review</DialogTitle>
-          <DialogContent>
-          <form onSubmit={handleSubmit} id="reviewForm">
-            <TextField
-              value={updatedReview} 
-              onChange={handleChange}
-              autoFocus
-              margin="dense"
-              placeholder={review.review}
-              id="Review"
-              label="Review"
-              type="text"
-              fullWidth
-              name='review'
-              variant="standard"
-            />
-          </form>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose}>Cancel</Button>
-            <Button
-              type='submit' 
-              onClick={handleClose} 
-              form="reviewForm"
-              >
-                Submit
-            </Button>
-          </DialogActions>
-      </Dialog>
+    <Box display={'flex'} >
+      <Box>
+        <EditIcon onClick={handleClickOpen} />
+        <Dialog open={open} onClose={handleClose}>
+          <DialogTitle>Edit your review</DialogTitle>
+            <DialogContent>
+            <form onSubmit={handleSubmit} id="reviewForm">
+              <TextField
+                value={updatedReview} 
+                onChange={handleChange}
+                autoFocus
+                margin="dense"
+                placeholder={review.review}
+                id="Review"
+                label="Review"
+                type="text"
+                fullWidth
+                name='review'
+                variant="standard"
+              />
+            </form>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose}>Cancel</Button>
+              <Button
+                type='submit' 
+                onClick={handleClose} 
+                form="reviewForm"
+                >
+                  Submit
+              </Button>
+            </DialogActions>
+        </Dialog>
+      </Box>
+        <Box>
+          <DeleteIcon onClick={handleDelete}/>
+        </Box>
     </Box>
-    <Box>
-      <DeleteIcon onClick={handleDelete}/>
-    </Box>
-    </>
   );
 }
 
