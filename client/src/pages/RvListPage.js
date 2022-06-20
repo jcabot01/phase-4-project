@@ -22,7 +22,7 @@ function RvListPage({ rvs, regionToggleNames, setRegionSelect }) {
       <Box component="div" sx={{ display: 'flex', marginLeft: 3, marginTop: 3 }}>
         {regionBoxes}
       </Box>
-      <Box  sx={{backgroundColor: "lightgrey", marginLeft: 5, marginRight: 5, borderRadius: 3}}>
+      <Box  sx={{backgroundColor: "#d7d7d7", borderRadius: 7}}>
         <Typography variant="h5" textAlign="center" sx={{marginTop: 5}}>Welcome to RV'n B!</Typography>
         <Typography variant="h5" textAlign="center">Search below to find your next getaway:</Typography>
       </Box>

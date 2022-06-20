@@ -33,7 +33,6 @@ function SignupForm({ onLogin }) {
   return (
     <div>
       <Box textAlign={'center'}> 
-            
         <Typography variant='h4' fontFamily={'cursive'} sx={{ color: "black", }}>Sign Up</Typography>
         <form onSubmit={handleSubmit}>
           <TextField 
@@ -66,13 +65,10 @@ function SignupForm({ onLogin }) {
             </Button>
           </Link>
         </form>
-          
-            {errors.map((err) => (
-              <Typography key={err} align='center'>{err}</Typography>
-            ))}
-             
+          {errors.map((err) => (
+            <Typography key={err} align='center'>{err}</Typography>
+          ))}
       </Box>
-    
   </div>
   )
 }
