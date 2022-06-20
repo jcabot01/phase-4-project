@@ -13,9 +13,10 @@ function RvListCard({ rv }) {
     <Box display="flex">
     <Wrapper>
      
-      <Box>
+      <Box sx={{backgroundColor: "lightgray"}}>
         {isLiked ? (
           <ToggleButton
+            sx={{display: 'contents', alignSelf: 'flex-end'}}
             value="check"
             selected={isLiked}
             onChange={() => setIsLiked(!isLiked)}>
@@ -24,6 +25,7 @@ function RvListCard({ rv }) {
           </ToggleButton>
         ) : (
           <ToggleButton
+            sx={{display: 'flow'}}
             value="check"
             selected={isLiked}
             onChange={() => setIsLiked(!isLiked)}>
@@ -32,7 +34,7 @@ function RvListCard({ rv }) {
           </ToggleButton>
         )}
       <Link underline='none' component={RouterLink} to={`/rvs/${rv.name}`}>
-      <Card key={rv.id} component="div" textAlign='center' sx={{ maxWidth: 345, margin: 2, backgroundColor: '#f6f6f8' }}>
+      <Card key={rv.id} component="div" textAlign='center' sx={{ maxWidth: 345, marginLeft: 1, marginRight: 1, marginBottom: 3, backgroundColor: '#f6f6f8' }}>
         <CardActionArea>
           <Typography gutterBottom variant="h5" component="div" textAlign={'right'} sx={{ backgroundColor: '#f6f6f8', marginRight: 2 }}>
             Region: {rv.region}
@@ -63,7 +65,7 @@ function RvListCard({ rv }) {
 
 const Wrapper = styled.section`
   max-width: 800px;
-  margin: 50px auto;
+  margin: 15px auto;
 `;
 
 export default RvListCard
