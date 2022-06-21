@@ -32,7 +32,7 @@ function NavBar({ user, setUser }) {  //pass in user.username state so we can re
             Hi 
           </NavLeft>
           <p>&nbsp;&nbsp;</p>
-          <Link to="/user_profile">
+          <Link to={`/user_profile/${user.username}`}>
             <Typography variant='h6' sx={{color: 'white', marginLeft: 2}}>
             {user.username}!
             </Typography>

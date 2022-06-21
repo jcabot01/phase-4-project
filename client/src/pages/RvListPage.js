@@ -10,6 +10,7 @@ function RvListPage({ rvs, regionToggleNames, setRegionSelect }) {
       <FormGroup >
         <FormControlLabel 
           control={<Checkbox 
+                      key={region}
                       defaultChecked
                       onChange={() => setRegionSelect(region)}
                   />}
@@ -24,10 +25,10 @@ function RvListPage({ rvs, regionToggleNames, setRegionSelect }) {
       </Box>
       <Box  sx={{backgroundColor: "#d7d7d7", borderRadius: 7}}>
         <Typography variant="h5" textAlign="center" sx={{marginTop: 5}}>Welcome to RV'n B!</Typography>
-        <Typography variant="h5" textAlign="center">Search below to find your next getaway:</Typography>
+        <Typography variant="h6" textAlign="center">Search below to find your next getaway:</Typography>
       </Box>
       {rvs.map((rv) => (
-        <RvListCard key ={rv.id} rv={rv}/>
+        <RvListCard key={rv.id} rv={rv}/>
         )
       )}
     </>

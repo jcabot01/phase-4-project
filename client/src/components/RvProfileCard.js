@@ -1,34 +1,36 @@
 import { React, useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { useLocation } from "react-router-dom"; //useParams not needed,
 import { Card, CardMedia, CardContent, Typography, Box, Button, Link } from '@mui/material'
 import styled from '@emotion/styled';
 
-function RvProfileCard({ user, rv, onReviewPost }) {
+function RvProfileCard({ user, onReviewPost }) {
+  // const { name } = useParams();
+  const location = useLocation();
+  const [rv] = useState(location.state)
   const [errors, setErrors] = useState([])
   const reviewObject = {
-    review: "", //`NO REVIEW YET FROM ${user.username}.`,
+    review: "**THE USER HAS NOT LEFT A REVIEW YET**",
     rv_id: rv.id,
     user_id: user.id
   };
 
-  function handleClick(){
-    //POST /reviews   send up to App so that RvProfilePage=>RvReviewCard can receive the review
-    
-      setErrors([]);
-      fetch("/reviews", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(reviewObject)
-      }).then((r) => {
-        if (r.ok) {
-          r.json().then((blankReview) => onReviewPost(blankReview));
-        } else {
-          r.json().then((err) => setErrors(err.errors));
-        }
-      });  
+  function handleClick(){ 
+    setErrors([]);
+    fetch("/reviews", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(reviewObject)
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((blankReview) => onReviewPost(blankReview));
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });  
   };
+  
   
   return (
     <Box component="div">
