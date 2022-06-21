@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   
   
-  # resource :reviews    #need all index, show, create, update, delete
+  # resources :reviews    #need all index, show, create, update, delete
 
   get '/users', to: 'users#index'  
   get '/users/:id', to: 'users#show'

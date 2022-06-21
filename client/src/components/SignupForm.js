@@ -8,6 +8,7 @@ function SignupForm({ onLogin }) {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
+  
   function handleSubmit(e){
     e.preventDefault()
     setErrors([]);
@@ -64,10 +65,10 @@ function SignupForm({ onLogin }) {
               Submit
             </Button>
           </Link>
-        </form>
           {errors.map((err) => (
             <Typography key={err} align='center'>{err}</Typography>
           ))}
+        </form>
       </Box>
   </div>
   )

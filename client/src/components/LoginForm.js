@@ -24,7 +24,6 @@ function LoginForm({ onLogin }) {
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
-      // navigate('/rvlist');
     });
   }
 
@@ -62,9 +61,6 @@ function LoginForm({ onLogin }) {
               <Typography key={err} >{err}</Typography>
             ))}
         </form>
-          {errors.map((err) => (
-            <Typography key={err} >{err}</Typography>
-          ))}
       </Box>
     </Box>
   )
