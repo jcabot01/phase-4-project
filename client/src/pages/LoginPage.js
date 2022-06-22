@@ -16,8 +16,8 @@ function LoginPage({ onLogin }) {
 };
 
   return(
-    <Box>
-      <Paper style={styles.paperContainer} sx={{height: 1180, minwidth: 528, borderRadius: 5}}>
+    <Box sx={{width: '522px', margin: 'auto' }}>
+      <Paper style={styles.paperContainer} sx={{height: 920, marginRight: 1, borderRadius: 5, backgroundRepeat: 'no-repeat'}}>
       <Box component={'div'} textAlign={'center'} sx={{ margin: 2 }}>
         <Logo>RV'n B</Logo>
         

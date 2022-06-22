@@ -62,17 +62,17 @@ function RvProfileCard({ user, onReviewPost }) {
           <Link href="/user_profile">
             <Button variant="contained" color='primary' onClick={handleClick} >Click to Rent this RV!</Button>
           </Link>
-          <Typography>Don't forget to leave a review!</Typography>
+          <Typography>...and leave a review!</Typography>
           <Wrapper>
               {errors.map((err) => (
                 <Typography key={err} >{err}</Typography>
               ))}
           </Wrapper>      
           </Box>
-          <Box>
-            <Typography variant='h6' sx={{marginTop: 6}}>What our clients have to say:</Typography>
+          <Box sx={{marginTop: 6, marginLeft: 4, marginBottom: 4, marginRight: 4}}>
+            <Typography variant='h6' sx={{marginLeft: 3,}}>What our clients have to say:</Typography>
               {rv.reviews.map((review) => (
-                <Card sx={{ marginTop: 3, maxWidth: '400px', backgroundColor: '#eeeeee' }} >
+                <Card key={review.id} sx={{ marginTop: 3, minWidth: '400px', backgroundColor: '#eeeeee' }} >
                   <Typography>{review.created_at.slice(0, 10)}</Typography>
                   <Typography>@{review.user.username}</Typography>
                   <span></span><br />

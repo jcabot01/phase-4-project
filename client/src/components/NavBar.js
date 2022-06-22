@@ -23,20 +23,15 @@ function NavBar({ user, setUser }) {  //pass in user.username state so we can re
   }
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Paper style={styles.paperContainer} sx={{height: 200, minWidth: 528, borderRadius: 5}}>
-      {/* <AppBar position="static" sx={{borderRadius: 5, backgroundColor: }}> */}
+    <Box>
+      <Paper style={styles.paperContainer} sx={{height: 210, minWidth: 528, borderRadius: 5}}>
         <Toolbar>
           <Button variant='outlined' size='small' sx={{backgroundColor: 'purple', marginTop: 1}}>
-          <NavLeft>
-            Hi 
-          </NavLeft>
-          <p>&nbsp;&nbsp;</p>
-          <Link to={`/user_profile/${user.username}`}>
-            <Typography variant='h6' sx={{color: 'white', marginLeft: 2}}>
-            {user.username}!
-            </Typography>
-          </Link>
+            <Link to={`/user_profile`}>
+              <Typography sx={{color: 'white'}}>
+              {user.username}'s Profile
+              </Typography>
+            </Link>
           </Button>
           
           <NavRight>
@@ -47,17 +42,14 @@ function NavBar({ user, setUser }) {  //pass in user.username state so we can re
               Logout
             </Button>
           </NavRight>
-         
-
         </Toolbar>
-      {/* </AppBar> */}
-      <Box textAlign={'center'}>
+     
+      <Box display="flex" justifyContent="center" alignItems="center">
           <Logo>
               RV'n B
           </Logo>
-          </Box>
-            
-          
+       
+      </Box>          
       </Paper>
     </Box>
   );
@@ -71,19 +63,11 @@ const NavRight = styled.nav`
   
 `;
 
-const NavLeft = styled.nav`
-  display: flex;
-  gap: 4px;
-  position: absolute;
-  left: 8px;
-  color: white;
-  font-size: 1.5em
-`;
-
 const Logo = styled.h1`
   font-family: "Over the Rainbow", cursive;
-  font-size: 3.5em;
+  font-size: 5.5em;
   color: white;
+  margin: auto;
 `;
 
 export default NavBar

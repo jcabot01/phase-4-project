@@ -9,8 +9,8 @@ function UserRentalsCard({ review, onEditedReview, onDeleteClick }) {
     <Box>
       <Box display="flex">
         <Wrapper>
-          <Card key={review.id} component="div" textAlign='center' sx={{ width: 345, margin: 2, backgroundColor: '#f6f6f8' }}>
-            <Typography gutterBottom variant="h5" component="div" textAlign={'right'} sx={{ backgroundColor: '#f6f6f8', marginRight: 2 }}>
+          <Card key={review.id} component="div" sx={{ width: 345, margin: 2, backgroundColor: '#f6f6f8' }}>
+            <Typography gutterBottom variant="h5" component="div" align={'right'} sx={{ backgroundColor: '#f6f6f8', marginRight: 2 }}>
               Region: {review.rv.region}
             </Typography>
             <CardMedia
@@ -20,7 +20,7 @@ function UserRentalsCard({ review, onEditedReview, onDeleteClick }) {
               alt="recreation vehicle"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div" textAlign="center" sx={{ backgroundColor: 'white' }}>
+              <Typography gutterBottom variant="h5" component="div" align="center" sx={{ backgroundColor: 'white' }}>
                 {review.rv.name}
               </Typography>
               <Typography textAlign={'right'} sx={{marginTop: 3}}>
