@@ -10,7 +10,7 @@ class RvsController < ApplicationController
   ##show   /rvs/:id
   def show 
     rv = Rv.find(params[:id])
-    render json: rv, status: :ok, serializer: RvSerializer
+    render json: rv, status: :ok 
   end
   
 end

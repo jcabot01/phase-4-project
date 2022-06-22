@@ -31,9 +31,9 @@ function RvListCard({ rv }) {
             </ToggleButton>
           )}
         <Link underline='none' component={RouterLink} state={rv} to={`/rvs/${rv.name}`}>
-        <Card key={rv.id} component="div" textalign='center' sx={{ maxWidth: 345, marginLeft: 1, marginRight: 1, marginBottom: 3, backgroundColor: '#f6f6f8' }}>
+        <Card key={rv.id} component="div" sx={{ maxWidth: 345, marginLeft: 1, marginRight: 1, marginBottom: 3, backgroundColor: '#f6f6f8' }}>
           <CardActionArea>
-            <Typography gutterBottom variant="h5" component="div" textAlign={'right'} sx={{ backgroundColor: '#f6f6f8', marginRight: 2 }}>
+            <Typography gutterBottom variant="h5" component="div" align={'right'} sx={{ backgroundColor: '#f6f6f8', marginRight: 2 }}>
               Region: {rv.region}
             </Typography>
             <CardMedia
@@ -43,7 +43,7 @@ function RvListCard({ rv }) {
               alt="recreation vehicle"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div" textAlign="center" sx={{ backgroundColor: 'white' }}>
+              <Typography gutterBottom variant="h5" component="div" align="center" sx={{ backgroundColor: 'white' }}>
                 {rv.name}
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ backgroundColor: 'white' }}>

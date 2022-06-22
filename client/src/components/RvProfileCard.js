@@ -31,12 +31,12 @@ function RvProfileCard({ user, onReviewPost }) {
     });  
   };
   
-  
+  console.log(user)
   return (
     <Box component="div">
       <Wrapper>
         <Card key={rv.id} component="div" sx={{ maxWidth: 345, marginTop: 3, backgroundColor: '#f6f6f8' }}>
-          <Typography gutterBottom variant="h5" component="div" textAlign={'right'} sx={{ backgroundColor: '#f6f6f8', marginRight: 2 }}>
+          <Typography gutterBottom variant="h5" component="div" align={'right'} sx={{ backgroundColor: '#f6f6f8', marginRight: 2 }}>
             Region: {rv.region}
           </Typography>
           <CardMedia
@@ -46,41 +46,41 @@ function RvProfileCard({ user, onReviewPost }) {
             alt="recreation vehicle"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div" textAlign="center" sx={{ backgroundColor: 'white' }}>
+            <Typography gutterBottom variant="h5" component="div" align="center" sx={{ backgroundColor: 'white' }}>
               {rv.name}
             </Typography>
             <Typography variant="body2" color="text.secondary" sx={{ backgroundColor: 'white' }}>
               {rv.description}
             </Typography>
-            <Typography variant="body2" color="text.secondary" textAlign={'right'} sx={{ backgroundColor: 'white' }}>
+            <Typography variant="body2" color="text.secondary" align={'right'} sx={{ backgroundColor: 'white' }}>
               Est. Mileage - {rv.mileage}
             </Typography>
           </CardContent>
         </Card>
       </Wrapper>
       <Box textAlign={'center'} sx={{marginTop: 6}}>
-          <Link href="/user_profile">
-            <Button variant="contained" color='primary' onClick={handleClick} >Click to Rent this RV!</Button>
-          </Link>
-          <Typography>...and leave a review!</Typography>
-          <Wrapper>
-              {errors.map((err) => (
-                <Typography key={err} >{err}</Typography>
-              ))}
-          </Wrapper>      
-          </Box>
-          <Box sx={{marginTop: 6, marginLeft: 4, marginBottom: 4, marginRight: 4}}>
-            <Typography variant='h6' sx={{marginLeft: 3,}}>What our clients have to say:</Typography>
-              {rv.reviews.map((review) => (
-                <Card key={review.id} sx={{ marginTop: 3, minWidth: '400px', backgroundColor: '#eeeeee' }} >
-                  <Typography>{review.created_at.slice(0, 10)}</Typography>
-                  <Typography>@{review.user.username}</Typography>
-                  <span></span><br />
-                  <Typography>"{review.review}"</Typography>
-                  
-                </Card>
-              ))}    
-          </Box>        
+        <Link href="/user_profile">
+          <Button variant="contained" color='primary' onClick={handleClick} >Click to Rent this RV!</Button>
+        </Link>
+        <Typography>...and leave a review!</Typography>
+        <Wrapper>
+            {errors.map((err) => (
+              <Typography key={err} >{err}</Typography>
+            ))}
+        </Wrapper>      
+      </Box>
+      <Box sx={{marginTop: 6, marginLeft: 4, marginBottom: 4, marginRight: 4}}>
+        <Typography variant='h6' sx={{marginLeft: 3,}}>What our clients have to say:</Typography>
+          {rv.reviews.map((review) => (
+            <Card key={review.id} sx={{ marginTop: 3, minWidth: '400px', backgroundColor: '#eeeeee' }} >
+              <Typography>{review.created_at.slice(0, 10)}</Typography>
+              <Typography>@{review.user.username}</Typography>
+              <span></span><br />
+              <Typography>"{review.review}"</Typography>
+              
+            </Card>
+          ))}    
+      </Box>        
     </Box>
   )
 }
