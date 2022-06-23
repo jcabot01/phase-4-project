@@ -6,19 +6,15 @@ import DeleteIcon from '@mui/icons-material/Delete';
 function ReviewCRUDDialogForm({ review, onEditedReview, onDeleteClick }) {
   const [open, setOpen] = useState(false);
   const [updatedReview, setUpdatedReview] = useState("")
-
-  
   const handleClickOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
 
   function handleSubmit(e){
     e.preventDefault()
-    console.log(updatedReview)
   
     const updatedReviewObject = {
       review: updatedReview

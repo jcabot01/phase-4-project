@@ -10,7 +10,6 @@ import HomePage from "./pages/HomePage";
 function App() {
   const [user, setUser] = useState(null)
   
-
   useEffect(() => {
     fetch("/me").then((r) => {
     if (r.ok) {
@@ -18,27 +17,21 @@ function App() {
     }
     });
   }, []);
-
-    function onReviewPost(obj){
-      console.log(obj)
-    }
   
   if (!user) return <LoginPage onLogin={setUser} />
   
-  console.log(user)
   return (
     <div>
     <Router>
       <NavBar user={user} setUser={setUser}/>
       <Routes>
         <Route path='/user_profile' element={<UserProfile user={user}/>}/>
-        <Route path='/rvs/:name' element={<RvProfileCard user={user} onReviewPost={onReviewPost} />}/>
+        <Route path='/rvs/:name' element={<RvProfileCard user={user}/>}/>
         <Route exact path='/' element={<HomePage />} />
         <Route path ="*" element="404 Page Not Found"/>
       </Routes>
     </Router>
     </div>
-    
   )
 }
 

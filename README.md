@@ -16,6 +16,7 @@ As stated before, this features a Ruby on Rails backend, PostgreSQL Database, an
 - React-router-dom "^6.3.0"
 - NodeJS (v16), and npm
 - Heroku CLI
+- Material UI "^5.8.3"
 ---there's plenty of other dependencies, be sure to check them out (package.json & Gemfile, respectively) in the [GitHub] repo if you have any questions.
 
 ## Installation

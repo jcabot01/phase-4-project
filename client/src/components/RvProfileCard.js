@@ -3,8 +3,7 @@ import { useLocation } from "react-router-dom"; //useParams not needed,
 import { Card, CardMedia, CardContent, Typography, Box, Button, Link } from '@mui/material'
 import styled from '@emotion/styled';
 
-function RvProfileCard({ user, onReviewPost }) {
-  // const { name } = useParams();
+function RvProfileCard({ user }) {
   const location = useLocation();
   const [rv] = useState(location.state)
   const [errors, setErrors] = useState([])
@@ -24,14 +23,13 @@ function RvProfileCard({ user, onReviewPost }) {
       body: JSON.stringify(reviewObject)
     }).then((r) => {
       if (r.ok) {
-        r.json().then((blankReview) => onReviewPost(blankReview));
+        r.json().then((blankReview) => console.log(blankReview));
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
     });  
   };
   
-  console.log(user)
   return (
     <Box component="div">
       <Wrapper>
@@ -77,7 +75,6 @@ function RvProfileCard({ user, onReviewPost }) {
               <Typography>@{review.user.username}</Typography>
               <span></span><br />
               <Typography>"{review.review}"</Typography>
-              
             </Card>
           ))}    
       </Box>        

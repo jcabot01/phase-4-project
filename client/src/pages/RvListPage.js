@@ -15,9 +15,9 @@ function RvListPage({ rvs, regionToggleNames, setRegionSelect }) {
                   />}
           label={region}/>
       </FormGroup>
-    )
-  })
-  console.log(rvs)
+    );
+  });
+
   return(
     <>
       <Box component="div" sx={{ display: 'flex', marginLeft: 3, marginTop: 3 }}>

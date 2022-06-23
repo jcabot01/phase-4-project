@@ -13,20 +13,17 @@ function LoginPage({ onLogin }) {
     paperContainer: { 
         backgroundImage: `url(${Image})`
     }
-};
+  };
 
   return(
     <Box sx={{width: '522px', margin: 'auto' }}>
       <Paper style={styles.paperContainer} sx={{height: 920, marginRight: 1, borderRadius: 5, backgroundRepeat: 'no-repeat'}}>
       <Box component={'div'} textAlign={'center'} sx={{ margin: 2 }}>
         <Logo>RV'n B</Logo>
-        
       </Box>
-
       <Box textAlign={'center'} sx={{backgroundColor: "#868686", borderRadius: 7}}>
         <Typography variant='h4' sx={{color: '#f3f6f4'}}>RV rentals in TX</Typography>
       </Box>
-     
       <Wrapper>
         {showLogin ? (
           <>
@@ -38,7 +35,6 @@ function LoginPage({ onLogin }) {
                   Sign Up
               </Button>
             </Box>
-            
           </>
         ) : (
           <>
@@ -50,7 +46,6 @@ function LoginPage({ onLogin }) {
                   Login
               </Button>
             </Box>
-            
           </>
         )}     
       </Wrapper>  

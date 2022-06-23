@@ -2,8 +2,6 @@ class UsersController < ApplicationController
   skip_before_action :authorize, only: [:create]
   wrap_parameters format: []
 
-  ###########probably need a User serializer to display non-password data to frontend
-
   #POST  2 actions: 1)signup to db & 2)set session hash to user_id      session[:user_id]
   #create   /signup
   def create
@@ -17,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   #GET  find user whose id == session[:user_id].  That user is logged in on every page refresh thanks to useEffect in App.js
-  #show   /users/:id    
+  #show   /me    
   def show
     user = User.find_by(id: session[:user_id])  #find user whose id == session hash
     if user 
