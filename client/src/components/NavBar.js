@@ -6,7 +6,7 @@ import Image from '../images/starry_sky.jpg';
 
 
 
-function NavBar({ user, setUser }) {  //pass in user.username state so we can render "Hi username"...pass in setUser state to set to null upon logout
+function NavBar({ user, setUser }) {
   
   const styles = {
     paperContainer: { 
@@ -38,8 +38,11 @@ function NavBar({ user, setUser }) {  //pass in user.username state so we can re
             <Button variant="contained" size='small' href="/" sx={{backgroundColor: 'purple'}}>
               Vehicles
             </Button>
+
             <Button variant="contained" size='small' sx={{backgroundColor: "#d7d7d7"}} onClick={handleClick}>
-              Logout
+              <Link to={'/'} underline='none'>
+                Logout
+              </Link>
             </Button>
           </NavRight>
         </Toolbar>
@@ -48,7 +51,6 @@ function NavBar({ user, setUser }) {  //pass in user.username state so we can re
           <Logo>
               RV'n B
           </Logo>
-       
       </Box>          
       </Paper>
     </Box>
