@@ -1,6 +1,6 @@
 # RV'n B
 
-![](https://gfycat.com/snappyagonizinghedgehog)
+![](https://media.giphy.com/media/9XbAvWLnzffDFLagQe/giphy.gif)
 
 ## Intro
 This application provides a platform for users to find RVs to rent in Texas.  Users must complete a Ruby on Rails authentication process to enter the website.  Once logged in, users are able to rent an RV and provide a review of their experience.  This app uses a Ruby on Rails backend, PostgreSQL Database, and React frontend.
