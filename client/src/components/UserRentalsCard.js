@@ -4,7 +4,7 @@ import { Box, Typography, Card, CardMedia, CardContent, CardActionArea  } from '
 import styled from '@emotion/styled'
 
 function UserRentalsCard({ review, onEditedReview, onDeleteClick }) {
-
+console.log(review)
   return (
     <Box>
       <Box display="flex">

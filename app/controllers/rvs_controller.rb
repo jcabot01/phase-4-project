@@ -3,7 +3,7 @@ class RvsController < ApplicationController
   ##index /rvs
   def index 
     rvs = Rv.all
-    render json: rvs, status: :ok
+    render json: rvs, status: :ok, include: ['reviews', 'reviews.user']
   end
 
   #GET

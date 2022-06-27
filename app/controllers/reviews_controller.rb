@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
   ##show   /reviews/:id
   def show 
     review = find_review
-    render json: review, status: :ok, include: [:rv, :user]
+    render json: review, status: :ok
   end
 
   #POST
