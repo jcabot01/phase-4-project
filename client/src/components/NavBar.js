@@ -23,8 +23,9 @@ function NavBar({ user, setUser }) {
   }
 
   return (
-    <Box>
-      <Paper style={styles.paperContainer} sx={{height: 210, minWidth: 528, borderRadius: 5}}>
+    <Box display="flex"
+    justifyContent="center">
+      <Paper style={styles.paperContainer} sx={{height: 210, width: 422, borderRadius: 5}}>
         <Toolbar>
           <Button variant='outlined' size='small' sx={{backgroundColor: 'purple', marginTop: 1}}>
             <Link to={`/user_profile`}>

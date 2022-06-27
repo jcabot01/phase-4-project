@@ -6,7 +6,7 @@ import { Box, Typography } from '@mui/material'
 function UserProfile({ user }) {
   const [reviews, setReviews] = useState([])
 
-  console.log(reviews)
+
   
   useEffect(() => {
     fetch("/reviews")
