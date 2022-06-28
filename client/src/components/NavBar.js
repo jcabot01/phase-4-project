@@ -36,11 +36,11 @@ function NavBar({ user, setUser }) {
           </Button>
           
           <NavRight>
-            <Button variant="contained" size='small' href="/" sx={{backgroundColor: 'purple'}}>
+            <Button variant="contained" size='small' href="/" sx={{backgroundColor: 'purple', marginTop: 1}}>
               Vehicles
             </Button>
 
-            <Button variant="contained" size='small' sx={{backgroundColor: "#d7d7d7"}} onClick={handleClick}>
+            <Button variant="contained" size='small' sx={{backgroundColor: "#d7d7d7", marginTop: 1}} onClick={handleClick}>
               <Link to={'/'} underline='none'>
                 Logout
               </Link>

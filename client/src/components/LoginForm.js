@@ -28,8 +28,8 @@ function LoginForm({ onLogin }) {
   }
 
   return (
-    <Box component="div" sx={{}}>
-      <Box textAlign={'center'}>     
+    <Box component="div" >
+      <Box textAlign={'center'} >     
         <Typography variant='h4' fontFamily={'cursive'} sx={{ color: "black", }}>Log In</Typography>
         <form onSubmit={handleSubmit}>
             <TextField 

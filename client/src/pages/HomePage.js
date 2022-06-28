@@ -13,7 +13,7 @@ function HomePage() {
     .then((rvs) => setRvs(rvs));
   }, []);
 
-  console.log(rvs)
+ 
   const regionToggleNames = ["All", "HTX", "DFW", "ATX"]
   const filteredRegions = rvs.filter((rv) => regionSelect === "All" || rv.region === regionSelect )
   return (
