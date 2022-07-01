@@ -5,7 +5,7 @@ import { FormGroup, Checkbox, FormControlLabel, Typography, Box } from "@mui/mat
 
 function RvListPage({ rvs, regionToggleNames, setRegionSelect }) {
   const regionBoxes = regionToggleNames.map((region) => {
-    
+  
     return(
       <FormGroup key={region}>
         <FormControlLabel 
