@@ -9,7 +9,7 @@ function SignupForm({ onLogin }) {
   const [errors, setErrors] = useState([]);
 
   
-  function handleSubmit(e){
+  function handleSubmit(e){ //users#create => set session hash to user_id
     e.preventDefault()
     setErrors([]);
     fetch("/signup", {

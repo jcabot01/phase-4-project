@@ -11,7 +11,7 @@ function App() {
   const [user, setUser] = useState(null)
   
   useEffect(() => {
-    fetch("/me").then((r) => {
+    fetch("/me").then((r) => {  //check if session-hash matches user_id
     if (r.ok) {
       r.json().then((user) => setUser(user));
     }
@@ -27,8 +27,8 @@ function App() {
       <Routes>
         <Route path='/user_profile' element={<UserProfile user={user}/>}/>
         <Route path='/rvs/:name' element={<RvProfileCard user={user}/>}/>
-        <Route exact path='/' element={<HomePage />} />
-        <Route path ="*" element="404 Page Not Found"/>
+        <Route path='/' element={<HomePage />} />
+        <Route path="*" element="404 Page Not Found"/>
       </Routes>
     </Router>
     </div>

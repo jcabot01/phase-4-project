@@ -10,7 +10,7 @@ function RvListPage({ rvs, regionToggleNames, setRegionSelect }) {
       <FormGroup key={region}>
         <FormControlLabel 
           control={<Checkbox 
-                      defaultChecked
+                      //defaultChecked
                       onChange={() => setRegionSelect(region)}
                   />}
           label={region}/>

@@ -1,15 +1,13 @@
 import { React, useState } from 'react';
-// import { useNavigate } from "react-router-dom";
 import { TextField, Button, Typography, Box, Link } from '@mui/material';
 
 
 function LoginForm({ onLogin }) {
-  // const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  function handleSubmit(e) {
+  function handleSubmit(e) { //sessions#create => set session-hash to user_id
     e.preventDefault()
     setErrors([]);
     fetch("/login", {
@@ -20,7 +18,7 @@ function LoginForm({ onLogin }) {
       body: JSON.stringify({username, password})
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => onLogin(user));
+        r.json().then((user) => onLogin(user)); //pass user response object up to App
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
