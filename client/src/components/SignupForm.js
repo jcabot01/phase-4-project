@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import { Typography, TextField, Box, Button, Link } from '@mui/material';
+import { Typography, TextField, Box, Button, Link, Grid } from '@mui/material';
 
 
 function SignupForm({ onLogin }) {
@@ -36,36 +36,48 @@ function SignupForm({ onLogin }) {
       <Box textAlign={'center'}> 
         <Typography variant='h4'>Sign Up</Typography>
         <form onSubmit={handleSubmit}>
-          <TextField 
-            value={username} onChange={(e) => setUsername(e.target.value)}
-            type={'text'}
-            sx={{ margin: 1, backgroundColor: '#ffffff' }} 
-            placeholder='Username' 
-            variant='outlined'/>
-          <TextField 
-            value={password} onChange={(e) => setPassword(e.target.value)}
-            type={'password'}
-            sx={{ margin: 1, backgroundColor: '#ffffff' }} 
-            placeholder='Password' 
-            variant='outlined'/>
-          <TextField 
-            value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}
-            type={'password'}
-            sx={{ margin: 1, backgroundColor: '#ffffff' }} 
-            placeholder='Confirm Password' 
-            variant='outlined'
-          />
-          <Link href="/">
-            <Button 
-              type='submit'
-              color="secondary"
-              variant="contained" 
-              width='fit-content'
-              sx={{ borderRadius: 2, margin: 3}}
-            >
-              Submit
-            </Button>
-          </Link>
+        <Grid container spacing={2} columns={16}>
+          <Grid item xs={16}>
+            <TextField 
+                value={username} onChange={(e) => setUsername(e.target.value)}
+                type={'text'}
+                sx={{ margin: 1, backgroundColor: '#ffffff' }} 
+                placeholder='Username' 
+                variant='outlined'
+                textAlign='center'/>
+          </Grid>
+          <Grid item xs={16}>
+            <TextField 
+                value={password} onChange={(e) => setPassword(e.target.value)}
+                type={'password'}
+                sx={{ margin: 1, backgroundColor: '#ffffff' }} 
+                placeholder='Password' 
+                variant='outlined'
+                textAlign='center'/>
+          </Grid>
+          <Grid item xs={16}>
+            <TextField 
+                value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}
+                type={'password'}
+                sx={{ margin: 1, backgroundColor: '#ffffff' }} 
+                placeholder='Confirm Password' 
+                variant='outlined'
+                textAlign='center'/>
+          </Grid>
+          <Grid item xs={16}>
+            <Link href="/">
+                <Button 
+                  type='submit'
+                  color="secondary"
+                  variant="contained" 
+                  sx={{ borderRadius: 2, margin: 3}}
+                  textAlign='center'
+                >
+                  Submit
+                </Button>
+              </Link>
+          </Grid>
+        </Grid>
           {errors.map((err) => (
             <Typography key={err} align='center'>{err}</Typography>
           ))}
