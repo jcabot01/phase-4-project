@@ -28,7 +28,7 @@ function LoginForm({ onLogin }) {
   return (
     <Box component="div" >
       <Box textAlign={'center'} >     
-        <Typography variant='h4' fontFamily={'cursive'} sx={{ color: "black", }}>Log In</Typography>
+        <Typography variant='h4'>Log In</Typography>
         <form onSubmit={handleSubmit}>
             <TextField 
               value={username} onChange={(e) => setUsername(e.target.value)}

@@ -34,7 +34,7 @@ function SignupForm({ onLogin }) {
   return (
     <div>
       <Box textAlign={'center'}> 
-        <Typography variant='h4' fontFamily={'cursive'} sx={{ color: "black", }}>Sign Up</Typography>
+        <Typography variant='h4'>Sign Up</Typography>
         <form onSubmit={handleSubmit}>
           <TextField 
             value={username} onChange={(e) => setUsername(e.target.value)}
@@ -60,6 +60,7 @@ function SignupForm({ onLogin }) {
               type='submit'
               color="secondary"
               variant="contained" 
+              width='fit-content'
               sx={{ borderRadius: 2, margin: 3}}
             >
               Submit
