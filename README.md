@@ -44,7 +44,7 @@ npm start --prefix client
 ```
 
 ## Deployment
-- 🚧 under construction🚧
+You can access the deployed app here: https://cabot-rv-n-b.herokuapp.com/
 
 Thank you for reading!
 
