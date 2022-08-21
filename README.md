@@ -46,6 +46,9 @@ npm start --prefix client
 ## Deployment
 You can access the deployed app here: https://cabot-rv-n-b.herokuapp.com/
 
+## Planning and Design Deck
+Here is the Canva link to the design deck that I made prior to coding: <a ref="https://www.canva.com/design/DAFC67OtvSY/rrPF-X8-SlDR9N1QxdfZTg/view?utm_content=DAFC67OtvSY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Design Deck</a>
+
 Thank you for reading!
 
 ## License
