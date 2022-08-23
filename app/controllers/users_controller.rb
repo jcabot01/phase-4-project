@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   #GET  find user whose id == session[:user_id].  That user is logged in on every page refresh thanks to useEffect in App.js
   #show   /me    
   def show
-    user = User.find_by(id: session[:user_id])  #find user whose id == session hash
+    user = User.find_by(id: session[:user_id])
     if user 
       render json: user, status: :ok
     else 
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:username, :password, :password_confirmation)   #add password here for a POST to db
+    params.permit(:username, :password, :password_confirmation)
   end
 
 end

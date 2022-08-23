@@ -3,7 +3,8 @@
 ![](https://media.giphy.com/media/9XbAvWLnzffDFLagQe/giphy.gif)
 
 ## Intro
-This application provides a platform for users to find RVs to rent in Texas.  Users must complete a Ruby on Rails authentication process to enter the website.  Once logged in, users are able to rent an RV and provide a review of their experience.  This app uses a Ruby on Rails backend, PostgreSQL Database, and React frontend.
+This application provides a platform for users to find RVs to rent in Texas.  Users must complete a Ruby on Rails authentication process to enter the website.  Once logged in, users are able to rent an RV and provide a review of their experience.  This app uses a Ruby on Rails backend, PostgreSQL Database, and React frontend.  Here is a walkthrough <a href="https://www.youtube.com/watch?v=vVlZN3wpy3c">video</a> of the app and a technical <a href="https://medium.com/@jfc0053/rvn-b-8a7b214bc162">blogpost</a>.
+
 
 ## User Journey
 When users arrive at RV'n B, they are able to Login or Signup to the website.  After logging in, they can survey the available RVs to rent on the "Vehicles" page.  Users can filter the RVs by region (TX only) and they can "like" the RVs that tickle their fancy.  Users can then click on the RV they like and view the existing reviews provided by the other users on the website.  If the user wants to rent it, they click the "Rent Now" button which produces a POST request to the backend.  The user is then redirected to their UserProfile page where they can reflect on their rental and provide a review to help other users guide their choice of RV rental.  The user has full CRUD capability with the review; they can create, read, update, and delete their reviews.  

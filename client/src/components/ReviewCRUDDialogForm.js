@@ -3,12 +3,16 @@ import { Button, TextField, Dialog, DialogActions, DialogContent, DialogTitle, B
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
+
+
 function ReviewCRUDDialogForm({ review, onEditedReview, onDeleteClick }) {
   const [open, setOpen] = useState(false);
   const [updatedReview, setUpdatedReview] = useState("")
+
   const handleClickOpen = () => {
     setOpen(true);
   };
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -72,14 +76,14 @@ function ReviewCRUDDialogForm({ review, onEditedReview, onDeleteClick }) {
                 onClick={handleClose} 
                 form="reviewForm"
                 >
-                  Submit
+                Submit
               </Button>
             </DialogActions>
         </Dialog>
       </Box>
-        <Box>
-          <DeleteIcon onClick={handleDelete}/>
-        </Box>
+      <Box>
+        <DeleteIcon onClick={handleDelete}/>
+      </Box>
     </Box>
   );
 }

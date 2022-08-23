@@ -7,12 +7,11 @@ import Image from '../images/starry_sky.jpg';
 
 
 function NavBar({ user, setUser }) {
-  
   const styles = {
     paperContainer: { 
         backgroundImage: `url(${Image})`
     }
-};
+  };
 
   function handleClick(){
     fetch("/logout", {method: "DELETE"}).then((r) => {
@@ -39,7 +38,6 @@ function NavBar({ user, setUser }) {
             <Button variant="contained" size='small' href="/" sx={{backgroundColor: 'purple', marginTop: 1}}>
               Vehicles
             </Button>
-
             <Button variant="contained" size='small' sx={{backgroundColor: "#d7d7d7", marginTop: 1}} onClick={handleClick}>
               <Link to={'/'} underline='none'>
                 Logout
@@ -47,12 +45,11 @@ function NavBar({ user, setUser }) {
             </Button>
           </NavRight>
         </Toolbar>
-     
-      <Box display="flex" justifyContent="center" alignItems="center">
+        <Box display="flex" justifyContent="center" alignItems="center">
           <Logo>
               RV'n B
           </Logo>
-      </Box>          
+        </Box>          
       </Paper>
     </Box>
   );
