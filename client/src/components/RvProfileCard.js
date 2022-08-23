@@ -68,8 +68,8 @@ function RvProfileCard({ user }) {
             ))}
         </Wrapper>      
       </Box>
-      <Box sx={{marginTop: 6, marginLeft: 4, marginBottom: 4, marginRight: 4}}>
-        <Typography variant='h6' sx={{marginLeft: 3,}}>What our clients have to say:</Typography>
+      <Box margin='auto' sx={{width: 'fit-content', marginTop: 6, marginBottom: 4 }}>
+        <Typography variant='h6' sx={{textDecoration: 'underline', display: "inline"}}>What our clients have to say:</Typography>
           {rv.reviews.map((review) => (
             <Card key={review.id} sx={{ marginTop: 3, minWidth: '400px', backgroundColor: '#eeeeee' }} >
               <Typography>{review.created_at.slice(0, 10)}</Typography>

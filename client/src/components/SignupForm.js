@@ -32,13 +32,12 @@ function SignupForm({ onLogin }) {
   }
 
   return (
-    <div>
-      <Box textAlign={'center'}> 
-        <Typography variant='h4'>Sign Up</Typography>
-        <form onSubmit={handleSubmit}>
-        <Grid container spacing={2} columns={16}>
+    <Box textAlign='center'> 
+      <Typography textAlign='center' variant='h4'>Sign Up</Typography>
+      <form onSubmit={handleSubmit}>
+        <Grid container spacing={1} columns={16}>
           <Grid item xs={16}>
-            <TextField 
+            <TextField
                 value={username} onChange={(e) => setUsername(e.target.value)}
                 type={'text'}
                 sx={{ margin: 1, backgroundColor: '#ffffff' }} 
@@ -70,7 +69,7 @@ function SignupForm({ onLogin }) {
                   type='submit'
                   color="secondary"
                   variant="contained" 
-                  sx={{ borderRadius: 2, margin: 3}}
+                  sx={{ borderRadius: 2, margin: 2}}
                   textAlign='center'
                 >
                   Submit
@@ -81,9 +80,9 @@ function SignupForm({ onLogin }) {
           {errors.map((err) => (
             <Typography key={err} align='center'>{err}</Typography>
           ))}
-        </form>
-      </Box>
-    </div>
+      </form>
+    </Box>
+    
   )
 }
 

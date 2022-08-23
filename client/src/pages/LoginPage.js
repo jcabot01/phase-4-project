@@ -23,14 +23,14 @@ function LoginPage({ onLogin }) {
         <Logo>RV'n B</Logo>
       </Box>
       <Box textAlign={'center'} sx={{backgroundColor: "#868686", borderRadius: 7}}>
-        <Typography variant='h4' sx={{color: '#f3f6f4'}}>RV rentals in TX</Typography>
+        <Typography variant='h5' sx={{color: '#f3f6f4'}}>RV rentals in TX</Typography>
       </Box>
       <Wrapper>
         {showLogin ? (
           <>
             <LoginForm onLogin={onLogin} />
             <Divider />
-            <Box component={'div'} textAlign={'center'}> 
+            <Box component={'div'} display="flex" justifyContent="center" alignItems="center"> 
               Don't have an account? &nbsp;
               <Button color="secondary" onClick={() => setShowLogin(false)}>
                   Sign Up
@@ -41,7 +41,7 @@ function LoginPage({ onLogin }) {
           <>
             <SignupForm onLogin={onLogin}/>
             <Divider  />
-            <Box component={'div'} textAlign={'center'}> 
+            <Box component={'div'} display="flex" justifyContent="center" alignItems="center"> 
               Already have an account? &nbsp;
               <Button color="secondary" onClick={() => setShowLogin(true)}>
                   Login
@@ -61,7 +61,7 @@ const Wrapper = styled.section`
   flexDirection: "column";
   margin: auto;
   background-color: #f3f6f4; 
-  margin-top: 100px;
+  margin-top: 60px;
   padding: 5px; 
   border-radius: 7px;
   opacity: 0.9
@@ -74,8 +74,9 @@ const Divider = styled.hr`
 `;
 
 const Logo = styled.h1`
+  margin-top: auto;
   font-family: "Over the Rainbow", cursive;
-  font-size: 6rem;
+  font-size: 4rem;
   color: white;
 `;
 
