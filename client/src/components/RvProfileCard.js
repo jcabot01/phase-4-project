@@ -1,12 +1,13 @@
 import { React, useState } from 'react';
-import { useLocation } from "react-router-dom"; //useParams not needed,
+import { useLocation } from "react-router-dom";
 import { Card, CardMedia, CardContent, Typography, Box, Button, Link } from '@mui/material'
 import styled from '@emotion/styled';
 
 function RvProfileCard({ user }) {
   const location = useLocation();
-  const [rv] = useState(location.state)
+  const [rv] = useState(location.state) //based on URL rv/:id, we extract state to build reviewObject for POST
   const [errors, setErrors] = useState([])
+
   const reviewObject = {
     review: "**THE USER HAS NOT LEFT A REVIEW YET**",
     rv_id: rv.id,

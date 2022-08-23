@@ -83,11 +83,9 @@ function SignupForm({ onLogin }) {
           ))}
         </form>
       </Box>
-  </div>
+    </div>
   )
 }
-
-
 
 
 export default SignupForm

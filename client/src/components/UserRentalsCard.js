@@ -3,8 +3,9 @@ import ReviewCRUDDialogForm from './ReviewCRUDDialogForm'
 import { Box, Typography, Card, CardMedia, CardContent, CardActionArea  } from '@mui/material'
 import styled from '@emotion/styled'
 
-function UserRentalsCard({ review, onEditedReview, onDeleteClick }) {
 
+
+function UserRentalsCard({ review, onEditedReview, onDeleteClick }) {
   return (
     <Box>
       <Box display="flex">

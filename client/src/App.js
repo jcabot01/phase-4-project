@@ -22,15 +22,15 @@ function App() {
   
   return (
     <div>
-    <Router>
-      <NavBar user={user} setUser={setUser}/>
-      <Routes>
-        <Route path='/user_profile' element={<UserProfile user={user}/>}/>
-        <Route path='/rvs/:name' element={<RvProfileCard user={user}/>}/>
-        <Route path='/' element={<HomePage />} />
-        <Route path="*" element="404 Page Not Found"/>
-      </Routes>
-    </Router>
+      <Router>
+        <NavBar user={user} setUser={setUser}/>
+        <Routes>
+          <Route path='/user_profile' element={<UserProfile user={user}/>}/>
+          <Route path='/rvs/:name' element={<RvProfileCard user={user}/>}/>
+          <Route path='/' element={<HomePage />} />
+          <Route path="*" element="404 Page Not Found"/>
+        </Routes>
+      </Router>
     </div>
   )
 }

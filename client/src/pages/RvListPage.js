@@ -5,8 +5,7 @@ import { FormGroup, Checkbox, FormControlLabel, Typography, Box } from "@mui/mat
 
 function RvListPage({ rvs, regionToggleNames, setRegionSelect }) {
   const regionBoxes = regionToggleNames.map((region) => {
-  
-    return(
+    return (
       <FormGroup key={region}>
         <FormControlLabel 
           control={<Checkbox 
@@ -18,7 +17,7 @@ function RvListPage({ rvs, regionToggleNames, setRegionSelect }) {
     );
   });
 
-  return(
+  return (
     <>
       <Box component="div" sx={{ display: 'flex', marginLeft: 3, marginTop: 3 }}>
         {regionBoxes}
